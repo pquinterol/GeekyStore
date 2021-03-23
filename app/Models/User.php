@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -17,8 +18,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        'fullname',
+        'type',
+        'username',
         'password',
     ];
 
@@ -40,4 +42,54 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getId()
+    {
+        return $this->attributes['id'];
+    }
+
+    public function setId($id)
+    {
+        $this->attributes['id'] = $id;
+    }
+
+    public function getFullName()
+    {
+        return $this->attributes['fullname'];
+    }
+
+    public function setFullName($fullname)
+    {
+        $this->attributes['fullname'] = $fullname;
+    }
+
+    public function getType()
+    {
+        return $this->attributes['type'];
+    }
+
+    public function setType($type)
+    {
+        $this->attributes['type'] = $type;
+    }
+
+    public function getUsername()
+    {
+        return $this->attributes['username'];
+    }
+
+    public function setUsernamae($username)
+    {
+        $this->attributes['username'] = $username;
+    }
+
+    public function getPassword()
+    {
+        return $this->attributes['password'];
+    }
+
+    public function setPassword($password)
+    {
+        $this->attributes['password'] = $password;
+    }
 }
