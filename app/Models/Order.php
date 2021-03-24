@@ -55,6 +55,11 @@ class Order extends Model
         return $this->attributes['created_at'];
     }
 
+    public function setDate($date)
+    {
+        $this->attributes['created_at'] = $date;
+    }
+
     public static function validateData($data)
     {
         return $data->validate([

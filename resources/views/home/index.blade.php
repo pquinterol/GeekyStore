@@ -15,6 +15,7 @@
         <!-- Portfolio Grid Items-->
 
         <a href="product/list/name" class="btn btn-primary btn-lg" role="button" aria-pressed="true">List Products</a>
+        <a href="order/list/created_at" class="btn btn-primary btn-lg" role="button" aria-pressed="true">List Orders</a>
         <div class="row">
             <!-- Portfolio Item 1-->
             <div class="col-md-6 col-lg-4 mb-5">
