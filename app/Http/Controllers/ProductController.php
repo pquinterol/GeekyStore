@@ -46,7 +46,7 @@ class ProductController extends Controller
     {
         $data = []; 
         $data["title"] = "List discount productss";
-        $data["products"] = Product::where('discount', '>',0)->get();
+        $data["products"] = Product::where('discount', '>',0)->orderBy('discount','desc')->get();
         
 
         return view('product.list')->with("data",$data);
