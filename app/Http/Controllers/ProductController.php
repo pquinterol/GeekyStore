@@ -32,11 +32,33 @@ class ProductController extends Controller
         return view('product.show')->with("data",$data);
     }
 
-    public function list()
+    public function listBy($param)
     {
         $data = []; 
-        $data["title"] = "Create product";
-        $data["products"] = Product::all();
+        $data["title"] = "List products";
+        $data["products"] = Product::orderBy($param)->get();
+
+        return view('product.list')->with("data",$data);
+    }
+
+   
+    public function listDiscountOnly()
+    {
+        $data = []; 
+        $data["title"] = "List discount productss";
+        $data["products"] = Product::where('discount', '>',0)->get();
+        
+
+        return view('product.list')->with("data",$data);
+    }
+
+    public function search($param)
+    {
+
+        $data = []; 
+        $data["title"] = "List products";
+        $data["products"] = Product::where('name', 'like','%'.$param.'%')->get();
+        
 
         return view('product.list')->with("data",$data);
     }

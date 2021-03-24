@@ -9,16 +9,26 @@
     <div class="col-md-12">
 
         <ul id="errors">
+            <div>
+                <a href="discountOnly" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Discount Only</a>
+            </div>
+            <div>
+                <form method="GET" action="{{ route('product.search') }}">
+                @csrf
+                    <input type="text" placeholder="Name" style="display" name="name" value= "{{ old('name') }}" />
+                    <input type="submit" class="btn btn-primary btn-lg" value="Search Product" />
+                </form>
+            </div>
             <table class="table">
                     <thead>
                         <tr>
                         <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Discount</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Manufacturer</th>
-                        <th scope="col">Quantity</th>
+                        <th scope="col"><a href="name" role="button" aria-pressed="true">Name</a></th>
+                        <th scope="col"><a href="price" role="button" aria-pressed="true">Price</a></th>
+                        <th scope="col"><a href="discount" role="button" aria-pressed="true">Discount</a></th>
+                        <th scope="col"><a href="category" role="button" aria-pressed="true">Category</a></th>
+                        <th scope="col"><a href="manufacturer" role="button" aria-pressed="true">Manufacturer</a></th>
+                        <th scope="col"><a href="quantity" role="button" aria-pressed="true">Quantity</a></th>
                         <th scope="col">Description</th>
                         </tr>
                     </thead>
