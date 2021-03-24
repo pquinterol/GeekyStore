@@ -7,10 +7,8 @@ use App\Models\Product;
 class ProductController extends Controller
 
 {
-
     public function show($id)
     {
-
         $data = []; 
         $product = Product::findOrFail($id);
 
@@ -20,31 +18,25 @@ class ProductController extends Controller
 
         
         return view('product.show')->with("data",$data);
-
     }
 
     public function list()
     {
-
         $data = []; 
         $data["title"] = "Create product";
         $data["products"] = Product::all();
 
-
         return view('product.list')->with("data",$data);
-
     }
 
     public function create()
     {
-
         $data = []; 
         $data["title"] = "Create product";
         $data["products"] = Product::all();
 
 
         return view('product.create')->with("data",$data);
-
     }
     
 
@@ -60,5 +52,12 @@ class ProductController extends Controller
     
     }
 
-
+    public function delete(Request $request)
+    {
+        $request->validate([
+            "id" => "required",
+        ]);
+        Product::where('id',$request["id"])->delete();
+        return redirect()->route('product.list')->with('success','Plane deleted successfully!!');
+    }
 }

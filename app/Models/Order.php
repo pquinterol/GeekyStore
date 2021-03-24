@@ -14,7 +14,11 @@ class Order extends Model
      *
      * @var array
      */
-    protected $fillable = ['status','price', 'created_at'];
+    protected $fillable = [
+        'status',
+        'price',
+        'created_at'
+    ];
 
     public function getId()
     {
