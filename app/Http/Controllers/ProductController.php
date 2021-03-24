@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => [
+            'show', 'list'
+        ]]);
+        $this->middleware('admin', ['except' => [
+            'show', 'list'
+        ]]);
+    }
     
     public function show($id)
     {
@@ -34,6 +43,7 @@ class ProductController extends Controller
 
     public function create()
     {
+        $this->middleware('admin');        
         $data = []; 
         $data["title"] = "Create product";
         $data["products"] = Product::all();
