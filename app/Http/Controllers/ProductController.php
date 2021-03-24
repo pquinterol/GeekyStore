@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -13,8 +14,6 @@ class ProductController extends Controller
 
         $data = []; 
         $product = Product::findOrFail($id);
-
-
         $data["title"] = $product->getName();
         $data["product"] = $product;
 
@@ -50,14 +49,24 @@ class ProductController extends Controller
 
     public function save(Request $request)
     {
+
         Product::validation($request);
-
-
         $data = Product::create($request->only(["name","price","discount","category","manufacturer","quantity","description"]));
+        Session::flash('message', 'The product was created');
         
-        
-        return back()->with('success','Item created successfully!');
+        return back();
     
+    }
+
+
+    public function delete($id)
+    {
+
+        Product::destroy($id);
+        Session::flash('message', 'The product was removed');
+
+        
+        return redirect()->route('product.list');
     }
 
 

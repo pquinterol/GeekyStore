@@ -17,30 +17,55 @@
 
                 <div class="card-body">
 
-                    @if($errors->any())
-                    <ul id="errors">
+                    <form class="row g-3" method="POST" action="{{ route('product.save') }}">
 
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
+                        @if (Session::has('message'))
 
-                    </ul>
-                    @endif
-
-                    <form method="POST" action="{{ route('product.save') }}">
+                            <div class="col-12">
+                                <p class="alert alert-success">{{Session::get('message')}}</p>
+                            </div>
+                    
+                        @endif
 
                         @csrf
-                        <input type="text" placeholder="Enter Name" name="name" value="{{ old('name') }}" required/>
-                        <input type="text" placeholder="Enter Price" name="price" value="{{ old('price') }}" required/>
-                        <input type="text" placeholder="Enter Discount" name="discount" value="{{ old('discount') }}" required/>
-                        <input type="text" placeholder="Enter Category" name="category" value="{{ old('category') }}" required/>
-                        <input type="text" placeholder="Enter Manufacturer" name="manufacturer" value="{{ old('manufacturer') }}" required/>
-                        <input type="text" placeholder="Enter Quantity" name="quantity" value="{{ old('quantity') }}" required/>
-                        <input type="text" placeholder="Enter Description" name="description" value="{{ old('description') }}" required/>
+                        <div class="col-12">
+                            <label for="EnterName" class="form-label">Enter Name</label>
+                            <input type="text" class="form-control" name="name" id="EnterName" value="{{ old('name') }}" required/>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="EnterPrice" class="form-label">Enter Price</label>
+                            <input type="text" class="form-control" name="price" id="EnterPrice" value="{{ old('price') }}" required/>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="EnterDiscount" class="form-label">Enter Discount</label>
+                            <input type="text" class="form-control" name="discount" id="EnterDiscount" value="{{ old('discount') }}" required/>
+                        </div>
+                        <div class="col-12">
+                            <label for="EnterCategory" class="form-label">Enter Category</label>
+                            <input type="text" class="form-control" name="category" id="EnterCategory" value="{{ old('category') }}" required/>
+                        </div>
+                        <div class="col-12">
+                            <label for="EnterManuf" class="form-label">Enter Manufacturer</label>
+                            <input type="text" class="form-control" name="manufacturer" id="EnterManuf" value="{{ old('manufacturer') }}" required/>
+                        </div>
+                        <div class="col-12">
+                            <label for="EnterQuanti" class="form-label">Enter Quantity</label>
+                            <input type="text" class="form-control" name="quantity" id="EnterQuanti" value="{{ old('quantity') }}" required/>
+                        </div>
+                        <div class="col-12">
+                            <label for="EnterDesc" class="form-label">Enter Description</label>
+                            <input type="text" class="form-control" name="description" id="EnterDesc" value="{{ old('description') }}" required/>
+                        </div>
+                        <div class="col-6">
+                            <input type="submit" value="Send" class="btn btn-success" />
+                        </div>
+                        <div class="col-6">
+                            <a class="btn btn-primary" href="{{route('home.index')}}">Index</a>
+                        </div>
                         
-                        <input type="submit" value="Send" />
-
                     </form>
+
+                    
 
                 </div>
 

@@ -16,6 +16,8 @@
 
                 <div class="card-body">
 
+                    <b>Product Id:</b> {{ $id = $data["product"]->getId() }}<br /><br />
+
                     <b>Product name:</b> {{ $data["product"]->getName() }}<br /><br />
 
                     <b>Product price:</b> {{ $data["product"]->getPrice() }}<br /><br />
@@ -30,8 +32,8 @@
 
                     <b>Product Description:</b> {{ $data["product"]->getDescription() }}<br /><br />
 
-
                     <a href="{{ route('home.index')}}" class="btn btn-primary">Inicio</a>
+                    <a class="btn btn-danger" href="{{route('product.delete', $id)}}">Delete</a>
                     <a href="{{ route('product.list')}}" class="btn btn-dark">Regresar</a>
                 </div>
 

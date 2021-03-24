@@ -18,25 +18,21 @@
             <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Manufacturer</th>
+                        <th scope="col">Product</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col">Subtotal</th>
                         <th scope="col">View More</th>
                         <th scope="col">Delete</th>
                         </tr>
                     </thead>
-                    @foreach($data["products"] as $product)
+                    @foreach($data["items"] as $item)
                     <tbody>
                         <tr>
-                        <td scope="row">{{ $product->getName() }}</td>
-                        <td>{{ $product->getPrice() }}</td>
-                        <td>{{ $product->getCategory() }}</td>
-                        <td>{{ $product->getManufacturer() }}</td>
-                        <td>{{ $product->getQuantity() }}</td>
-                        <td><a class="btn btn-success" href="{{route('product.show', $product->getId())}}">View</a></td>
-                        <td><a class="btn btn-danger" href="{{route('product.delete', $product->getId())}}">Delete</a></td>
+                        <td scope="row">{{ $item->getProduct() }}</td>
+                        <td>{{ $item->getQuantity() }}</td>
+                        <td>{{ $item->getSubtotal() }}</td>
+                        <td><a class="btn btn-success" href="{{route('item.show', $item->getId())}}">View</a></td>
+                        <td><a class="btn btn-danger" href="{{route('item.delete', $item->getId())}}">Delete</a></td>
                         </tr>
                     </tbody>
                     @endforeach

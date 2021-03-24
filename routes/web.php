@@ -39,3 +39,10 @@ Route::get('/product/show/{id}', 'App\Http\Controllers\ProductController@show')-
 Route::get('/product/create', 'App\Http\Controllers\ProductController@create')->name("product.create");
 Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
 Route::get('/product/list', 'App\Http\Controllers\ProductController@list')->name("product.list");
+Route::get('/product/delete/{id}', 'App\Http\Controllers\ProductController@delete')->name("product.delete");
+/* Routes Jonny Item */
+Route::get('/item/show/{id}', 'App\Http\Controllers\ItemController@show')->name("item.show");
+Route::get('/item/create', 'App\Http\Controllers\ItemController@create')->name("item.create");
+Route::post('/item/save', 'App\Http\Controllers\ItemController@save')->name("item.save");
+Route::get('/item/list', 'App\Http\Controllers\ItemController@list')->name("item.list");
+Route::get('/item/delete/{id}', 'App\Http\Controllers\ItemController@delete')->name("item.delete");
