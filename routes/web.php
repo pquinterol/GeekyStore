@@ -34,3 +34,8 @@ Route::get('/user/create', 'App\Http\Controllers\UserController@create')->name("
 Route::get('/user/display', 'App\Http\Controllers\UserController@display')->name("user.display");
 Route::post('/user/save', 'App\Http\Controllers\UserController@save')->name("user.save");
 Route::post('/user/delete', 'App\Http\Controllers\UserController@delete')->name("user.delete");
+/* Routes Jonny Product */
+Route::get('/product/show/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
+Route::get('/product/create', 'App\Http\Controllers\ProductController@create')->name("product.create");
+Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
+Route::get('/product/list', 'App\Http\Controllers\ProductController@list')->name("product.list");
