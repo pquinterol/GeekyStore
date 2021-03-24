@@ -4,10 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+            if(Auth::user()->getType()=="client"){
+                return redirect()->route('home.index');
+            }
+    
+            return $next($request);
+        });
+    }
+
     public function show($id)
     {   
         try
@@ -19,17 +32,10 @@ class UserController extends Controller
             return redirect('/user/display');
         }
 
-        $data["fullName"] = $user->getFullName();
-        $data["type"] = $user->getType();
-        $data["username"] = $user->getUsername();
-        $data["password"] = $user->getPassword();
-        $data["id"] = $user->getId();     
-
-
-        return view('user.show')->with("data",$data);
+        return view('user.show')->with("data",$user);
         
     }
-
+    /*
     public function save(Request $request)
     {
         $request->validate([
@@ -50,7 +56,7 @@ class UserController extends Controller
 
         return view('user.create')->with("data",$data);
     }
-
+    */
     public function display()
     {
         $data = []; //to be sent to the view
@@ -67,7 +73,5 @@ class UserController extends Controller
         ]);
         User::where('id',$request["id"])->delete();
         return redirect('/user/display');
-    }
-
-
+    } 
 }
