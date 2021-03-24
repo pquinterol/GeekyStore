@@ -12,13 +12,6 @@
             <div>
                 <a href="discountOnly" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Discount Only</a>
             </div>
-            <div>
-                <form method="GET" action="{{ route('product.search') }}">
-                @csrf
-                    <input type="text" placeholder="Name" style="display" name="name" value= "{{ old('name') }}" />
-                    <input type="submit" class="btn btn-primary btn-lg" value="Search Product" />
-                </form>
-            </div>
             <table class="table">
                     <thead>
                         <tr>
