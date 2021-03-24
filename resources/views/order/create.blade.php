@@ -20,7 +20,7 @@
                 @endif
                 <form method="POST" action="{{ route('order.save') }}">
                     @csrf
-                    <input type="text" placeholder="Enter Total Price" name="totalPrice" value="{{ old('totalPrice') }}" />
+                    <input type="text" placeholder="Enter Total Price" name="price" value="{{ old('price') }}" />
                     <input type="submit" value="Send" />
                 </form>
                 </div>
