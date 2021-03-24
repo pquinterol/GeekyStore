@@ -38,9 +38,6 @@ Route::post('/user/delete', 'App\Http\Controllers\UserController@delete')->name(
 Route::get('/product/show/{id}', 'App\Http\Controllers\ProductController@show')->name("product.show");
 Route::get('/product/create', 'App\Http\Controllers\ProductController@create')->name("product.create");
 Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
-#Route::get('/product/list', 'App\Http\Controllers\ProductController@list')->name("product.list");
-#Route::get('/product/lookFor/{param}', 'App\Http\Controllers\ProductController@lookFor')->name("product.lookFor");
 Route::get('/product/list/discountOnly', 'App\Http\Controllers\ProductController@listDiscountOnly')->name("product.discountOnly");
-Route::get('/product/list/search', 'App\Http\Controllers\ProductController@search')->name("product.search");
 Route::get('/product/list/{param}', 'App\Http\Controllers\ProductController@listBy')->name("product.list");
 Route::delete('/product/delete', 'App\Http\Controllers\ProductController@delete')->name("product.delete");

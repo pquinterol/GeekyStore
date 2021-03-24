@@ -52,17 +52,6 @@ class ProductController extends Controller
         return view('product.list')->with("data",$data);
     }
 
-    public function search($param)
-    {
-
-        $data = []; 
-        $data["title"] = "List products";
-        $data["products"] = Product::where('name', 'like','%'.$param.'%')->get();
-        
-
-        return view('product.list')->with("data",$data);
-    }
-
     public function create()
     {
         //$this->middleware('admin');        
