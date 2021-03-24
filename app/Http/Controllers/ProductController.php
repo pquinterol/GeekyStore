@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 
 {
+    
     public function show($id)
     {
+        
         $data = []; 
         $product = Product::findOrFail($id);
 
@@ -53,7 +56,7 @@ class ProductController extends Controller
     }
 
     public function delete(Request $request)
-    {
+    {   
         $request->validate([
             "id" => "required",
         ]);
