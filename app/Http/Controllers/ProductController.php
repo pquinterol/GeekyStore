@@ -20,15 +20,15 @@ class ProductController extends Controller
     
     public function show($id)
     {
-        
-        $data = []; 
-        $product = Product::findOrFail($id);
+        try
+        {
+            $product = Product::findOrFail($id);
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return redirect('/product/list');
+        }
 
-
-        $data["title"] = $product->getName();
-        $data["product"] = $product;
-
-        
         return view('product.show')->with("data",$data);
     }
 
@@ -52,9 +52,9 @@ class ProductController extends Controller
         return view('product.list')->with("data",$data);
     }
 
-
     public function create()
-    {   
+    {
+        //$this->middleware('admin');        
         $data = []; 
         $data["title"] = "Create product";
         $data["products"] = Product::all();
@@ -67,13 +67,9 @@ class ProductController extends Controller
     public function save(Request $request)
     {
         Product::validation($request);
-
-
         $data = Product::create($request->only(["name","price","discount","category","manufacturer","quantity","description"]));
         
-        
         return back()->with('success','Item created successfully!');
-    
     }
 
     public function delete(Request $request)

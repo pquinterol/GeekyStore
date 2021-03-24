@@ -17,11 +17,8 @@
      {
         $status = '';
         $message = '';
-        $validated = $request->validate([
-            "price" => "required|numeric|gt:0",
-        ]);
 
-        if($validated)
+        if(Order::validateData($request))
         {
             Order::create($request->all());
             $status = 'success';
@@ -36,18 +33,22 @@
 
      public function show($id)
      {
-        $data = [];
-        $order = Order::findOrFail($id);
+        try
+        {
+            $order = Order::findOrFail($id);
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return redirect('/order/list');
+        }
 
-        $data["title"] = "Order:".$order->getId();
-        $data["order"] = $order;
-        return view('order.show')->with("data",$data);
+        return view('order.show')->with("data",$order);
      }
 
      public function list()
      {
         $data = [];
-        $data["title"] = "create order";
+        $data["title"] = "Orders";
         $data["orders"] = Order::all();
         return view('order.list')->with('data',$data);
      }
