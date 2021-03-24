@@ -54,4 +54,11 @@ class Order extends Model
     {
         return $this->attributes['created_at'];
     }
+
+    public static function validateData($data)
+    {
+        return $data->validate([
+            "price" => "required|numeric|gt:0",
+        ]);
+    }
 }

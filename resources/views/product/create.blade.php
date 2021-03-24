@@ -8,8 +8,8 @@
 
     <div class="row justify-content-center">
 
-        @include('util.message')
         <div class="col-md-8">
+        @include('util.message')
 
             <div class="card">
 
@@ -30,15 +30,28 @@
                     <form method="POST" action="{{ route('product.save') }}">
 
                         @csrf
-                        <input type="text" placeholder="Enter Name" name="name" value="{{ old('name') }}" required/>
-                        <input type="text" placeholder="Enter Price" name="price" value="{{ old('price') }}" required/>
-                        <input type="text" placeholder="Enter Discount" name="discount" value="{{ old('discount') }}" required/>
-                        <input type="text" placeholder="Enter Category" name="category" value="{{ old('category') }}" required/>
-                        <input type="text" placeholder="Enter Manufacturer" name="manufacturer" value="{{ old('manufacturer') }}" required/>
-                        <input type="text" placeholder="Enter Quantity" name="quantity" value="{{ old('quantity') }}" required/>
-                        <input type="text" placeholder="Enter Description" name="description" value="{{ old('description') }}" required/>
-                        
-                        <input type="submit" value="Send" />
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Name" name="name" value="{{ old('name') }}" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Price" name="price" value="{{ old('price') }}" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Discount" name="discount" value="{{ old('discount') }}" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Category" name="category" value="{{ old('category') }}" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Manufacturer" name="manufacturer" value="{{ old('manufacturer') }}" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" value="{{ old('quantity') }}" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter Description" name="description" value="{{ old('description') }}" required/>
+                        </div>
+                        <input type="submit" class="btn btn-success btn-lg" value="Send" />
 
                     </form>
 
