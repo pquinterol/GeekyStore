@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 
@@ -68,6 +69,7 @@ class ProductController extends Controller
     {
         Product::validation($request);
         $data = Product::create($request->only(["name","price","discount","category","manufacturer","quantity","description"]));
+        Session::flash('message', 'The product was created');
         
         return back()->with('success','Item created successfully!');
     }

@@ -28,10 +28,8 @@
                     @foreach($data["products"] as $product)
                     <tbody>
                         <tr>
-                        <th scope="row">{{ $product->getId() }}</th>
-                        <td>{{ $product->getName() }}</td>
+                        <td scope="row">{{ $product->getName() }}</td>
                         <td>{{ $product->getPrice() }}</td>
-                        <td>{{ $product->getDiscount() }}</td>
                         <td>{{ $product->getCategory() }}</td>
                         <td>{{ $product->getManufacturer() }}</td>
                         <td>{{ $product->getQuantity() }}</td>
@@ -51,6 +49,8 @@
                 </table>
 
         </ul>
+
+        <a class="btn btn-primary" href="{{route('home.index')}}">Index</a>
 
     </div>
 

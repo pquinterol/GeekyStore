@@ -42,3 +42,10 @@ Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->nam
 Route::get('/product/list/discountOnly', 'App\Http\Controllers\ProductController@listDiscountOnly')->name("product.discountOnly");
 Route::get('/product/list/{param}', 'App\Http\Controllers\ProductController@listBy')->name("product.list");
 Route::delete('/product/delete', 'App\Http\Controllers\ProductController@delete')->name("product.delete");
+
+/* Routes Jonny Item */
+Route::get('/item/show/{id}', 'App\Http\Controllers\ItemController@show')->name("item.show");
+Route::get('/item/create', 'App\Http\Controllers\ItemController@create')->name("item.create");
+Route::post('/item/save', 'App\Http\Controllers\ItemController@save')->name("item.save");
+Route::get('/item/list', 'App\Http\Controllers\ItemController@list')->name("item.list");
+Route::get('/item/delete/{id}', 'App\Http\Controllers\ItemController@delete')->name("item.delete");

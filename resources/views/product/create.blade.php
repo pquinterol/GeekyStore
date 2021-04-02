@@ -17,17 +17,15 @@
 
                 <div class="card-body">
 
-                    @if($errors->any())
-                    <ul id="errors">
+                    <form class="row g-3" method="POST" action="{{ route('product.save') }}">
 
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
+                        @if (Session::has('message'))
 
-                    </ul>
-                    @endif
-
-                    <form method="POST" action="{{ route('product.save') }}">
+                            <div class="col-12">
+                                <p class="alert alert-success">{{Session::get('message')}}</p>
+                            </div>
+                    
+                        @endif
 
                         @csrf
                         <div class="form-group">
@@ -62,7 +60,7 @@
         </div>
 
     </div>
-
+    
 </div>
 
 @endsection
