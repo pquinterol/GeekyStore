@@ -15,6 +15,7 @@
                     <br>
                     <form method="POST" action="{{ route('user.delete') }}">
                     @csrf
+                    @method('DELETE')
                         <input type="text" style="display:none" name="id" value="{{ $data->getId() }}" />
                         <input type="submit" class="btn btn-danger btn-lg" value="Delete User" />
                     </form>

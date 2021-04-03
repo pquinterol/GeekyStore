@@ -22,16 +22,14 @@ class CreateItemsTable extends Migration
 
         Schema::create('items', function (Blueprint $table) 
         {
-
             $table->bigIncrements('id');
             $table->integer('quantity');
             $table->float('subtotal');
-            $table->unsignedBigInteger('product'); 
+            $table->unsignedBigInteger('product');
             $table->foreign('product')->references('id')->on('products');
-            $table->unsignedBigInteger('order'); 
+            $table->unsignedBigInteger('order');
             $table->foreign('order')->references('id')->on('orders');
             $table->timestamps();
-        
         });
 
     }
