@@ -5,27 +5,15 @@
 @section('content')
 
 <div class="container">
-
     <div class="row justify-content-center">
-
-        @include('util.message')
         <div class="col-md-8">
-
             <div class="card">
-
                 <div class="card-header">Create item</div>
-
                 <div class="card-body">
-
                     <form class="row g-3" method="POST" action="{{ route('item.save') }}">
-
-                        @if (Session::has('message'))
-
-                            <div class="col-12">
-                                <p class="alert alert-success">{{Session::get('message')}}</p>
-                            </div>
-                    
-                        @endif
+                        <div class="col-12">
+                            <p class="alert alert-success">@include('util.message')</p>
+                        </div>
 
                         @csrf
                         <div class="col-12">
@@ -50,19 +38,11 @@
                         <div class="col-6">
                             <a class="btn btn-primary" href="{{route('home.index')}}">Index</a>
                         </div>
-                        
                     </form>
-
-                    
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 @endsection

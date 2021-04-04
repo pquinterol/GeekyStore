@@ -73,4 +73,11 @@ class Item extends Model
             "order" => "required|numeric|gt:0"
         ]);
     }
+
+    public static function validateId($data)
+    {
+        $data->validate([
+            "id" => "required",
+        ]);
+    }
 }

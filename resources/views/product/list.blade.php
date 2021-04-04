@@ -5,7 +5,6 @@
 @section('content')
 
 <div class="row p-5">
-
     <div class="col-md-12">
         @include('util.message')
         <ul id="errors">
@@ -47,12 +46,8 @@
                     </tbody>
                     @endforeach
                 </table>
-
         </ul>
-
         <a class="btn btn-primary" href="{{route('home.index')}}">Index</a>
-
     </div>
-
 </div>
 @endsection

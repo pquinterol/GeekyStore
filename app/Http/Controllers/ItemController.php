@@ -6,68 +6,60 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Item;
 
 class ItemController extends Controller
-
 {
-
     public function show($id)
     {
-
         $data = []; 
         $item = Item::findOrFail($id);
         $data["title"] = $item->getId();
         $data["items"] = $item;
-
         
         return view('item.show')->with("data",$data);
-
     }
 
     public function list()
     {
-
         $data = []; 
         $data["title"] = "Create product";
         $data["items"] = Item::all();
 
-
         return view('item.list')->with("data",$data);
-
     }
 
     public function create()
     {
-
         $data = []; 
         $data["title"] = "Create product";
         $data["items"] = Item::all();
 
-
         return view('item.create')->with("data",$data);
-
     }
     
 
     public function save(Request $request)
-    {
+    {   
+        $status = '';
+        $message = '';
 
-        Item::validation($request);
-        $data = Item::create($request->only(["quantity","subtotal","product", "order"]));
-        Session::flash('message', 'The item was created');
+        if(Item::validation($request))
+        {
+            Item::create($request->all());
+            $status = 'success';
+            $message = 'Item created successfully!!';
+        } else {
+            $status = 'error';
+            $message = 'Unable to create item';
+        }
         
-        return back();
-    
+        return back()->with($status,$message);
     }
 
 
     public function delete($id)
     {
+        Item::validateId($request);
+        Item::where('id',$request["id"])->delete();
 
-        Item::destroy($id);
-        Session::flash('message', 'The product was removed');
-
-        
-        return redirect()->route('item.list');
+        return redirect()->route('item.list')->with('success','Item deleted successfully!!');
     }
-
-
 }

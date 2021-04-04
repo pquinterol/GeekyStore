@@ -48,4 +48,4 @@ Route::get('/item/show/{id}', 'App\Http\Controllers\ItemController@show')->name(
 Route::get('/item/create', 'App\Http\Controllers\ItemController@create')->name("item.create");
 Route::post('/item/save', 'App\Http\Controllers\ItemController@save')->name("item.save");
 Route::get('/item/list', 'App\Http\Controllers\ItemController@list')->name("item.list");
-Route::get('/item/delete/{id}', 'App\Http\Controllers\ItemController@delete')->name("item.delete");
+Route::delete('/item/delete', 'App\Http\Controllers\ItemController@delete')->name("item.delete");
