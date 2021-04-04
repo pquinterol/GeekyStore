@@ -3,9 +3,22 @@
 
  use Illuminate\Http\Request;
  use App\Models\Maintenance;
+ use Illuminate\Support\Facades\Auth;
 
  class MaintenanceController extends Controller
  {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(function ($request, $next) {
+
+            if(auth()->check()) {
+                return $next($request);
+            }
+            return redirect()->route('home.index');
+        });
+    }
+
      public function create()
      {
          $data = [];
@@ -49,7 +62,14 @@
      {
         $data = [];
         $data["title"] = "Maintenances";
-        $data["maintenances"] = Maintenance::all();
+        
+        if(Auth::user()->getType() == "admin") {
+            $data["maintenances"] = Maintenance::orderBy('created_at','desc')->get();
+        }
+        else {
+            $data["maintenances"] = Auth::user()->getMaintenances();
+        }
+
         return view('maintenance.list')->with('data',$data);
      }
 

@@ -22,17 +22,13 @@ class CreateMaintenancesTable extends Migration
 
         Schema::create('maintenances', function (Blueprint $table) 
         {
-
             $table->bigIncrements('id');
-            $table->text('name');
-            $table->float('price');
-            $table->float('discount');
-            $table->text('category');
-            $table->text('manufacturer');
-            $table->integer('quantity');
+            $table->text('status')->default('In Process');
+            $table->double('price');
             $table->text('description');
+            $table->unsignedBigInteger('user');
+            $table->foreign('user')->references('id')->on('users');
             $table->timestamps();
-        
         });
 
     }

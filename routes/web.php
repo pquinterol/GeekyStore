@@ -40,3 +40,10 @@ Route::get('/product/create', 'App\Http\Controllers\ProductController@create')->
 Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
 Route::get('/product/list', 'App\Http\Controllers\ProductController@list')->name("product.list");
 Route::delete('/product/delete', 'App\Http\Controllers\ProductController@delete')->name("product.delete");
+
+//Maintenance Routes
+Route::get('/maintenance/create', 'App\Http\Controllers\MaintenanceController@create')->name("maintenance.create");
+Route::delete('/maintenance/delete', 'App\Http\Controllers\MaintenanceController@delete')->name("maintenance.delete");
+Route::post('/maintenance/save', 'App\Http\Controllers\MaintenanceController@save')->name("maintenance.save");
+Route::get('/maintenance/show/{id}', 'App\Http\Controllers\MaintenanceController@show')->name("maintenance.show");
+Route::get('/maintenance/list', 'App\Http\Controllers\MaintenanceController@list')->name("maintenance.list");
