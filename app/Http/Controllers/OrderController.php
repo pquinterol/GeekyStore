@@ -49,7 +49,7 @@
      {
         $data = [];
         $data["title"] = "Orders";
-        $data["orders"] = Order::all();
+        $data["orders"] = Order::orderBy('created_at')->get();
         return view('order.list')->with('data',$data);
      }
 
@@ -57,6 +57,25 @@
      {
         $id = $request->id;
         Order::where('id',$id)->delete();
-        return redirect()->route('order.list')->with('success','Plane deleted successfully!!');
+        return redirect()->route('order.list', 'created_at')->with('success','Order deleted successfully!!');
      }
+
+     public function listBy($param)
+    {
+        $data = []; 
+        $data["title"] = "List Orders";
+        $data["orders"] = Order::orderBy($param,'DESC')->get();
+
+        return view('order.list')->with("data",$data);
+    }
+
+   
+    public function inProcess()
+    {
+        $data = []; 
+        $data["title"] = "List discount Orders";
+        $data["orders"] = Order::where('status', 'In Process')->get();
+
+        return view('order.list')->with("data",$data);
+    }
  }

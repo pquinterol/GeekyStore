@@ -7,7 +7,7 @@
 <div class="row p-5">
 
     <div class="col-md-12">
-
+        @include('util.message')
         <ul id="errors">
             <div>
                 <a href="discountOnly" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Discount Only</a>

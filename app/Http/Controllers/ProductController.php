@@ -78,6 +78,6 @@ class ProductController extends Controller
             "id" => "required",
         ]);
         Product::where('id',$request["id"])->delete();
-        return redirect()->route('product.list')->with('success','Plane deleted successfully!!');
+        return redirect()->route('product.list')->with('success','Order deleted successfully!!');
     }
 }

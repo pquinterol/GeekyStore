@@ -27,7 +27,8 @@ Route::get('/order/create', 'App\Http\Controllers\OrderController@create')->name
 Route::delete('/order/delete', 'App\Http\Controllers\OrderController@delete')->name("order.delete");
 Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("order.save");
 Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
-Route::get('/order/list', 'App\Http\Controllers\OrderController@list')->name("order.list");
+Route::get('/order/list/InProcess', 'App\Http\Controllers\OrderController@inProcess')->name("order.inProcess");
+Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')->name("order.list");
 /* Routes Moli User - Wishlist */
 Route::get('/user/show/{id}', 'App\Http\Controllers\UserController@show')->name("user.show");
 Route::get('/user/create', 'App\Http\Controllers\UserController@create')->name("user.create");

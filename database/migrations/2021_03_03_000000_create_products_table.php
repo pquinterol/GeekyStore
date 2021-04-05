@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
 
             $table->bigIncrements('id');
             $table->text('name');
-            $table->float('price');
+            $table->double('price');
             $table->float('discount');
             $table->text('category');
             $table->text('manufacturer');

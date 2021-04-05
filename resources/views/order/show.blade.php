@@ -16,6 +16,10 @@
             <b>Date:</b> {{ $data->getDate() }}<br />
           </div>
         </div>
+        <div class="row justify-content-center">
+          <a href="{{ route('home.index')}}" class="btn btn-primary">Home</a>
+          <a href="{{ route('order.list','price')}}" class="btn btn-dark">Return</a>
+        </div>
       </div>
     </div>
 </div>
