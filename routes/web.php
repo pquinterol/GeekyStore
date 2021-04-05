@@ -32,7 +32,7 @@ Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')
 /* Routes Moli User - Wishlist */
 Route::get('/user/show/{id}', 'App\Http\Controllers\UserController@show')->name("user.show");
 Route::get('/user/create', 'App\Http\Controllers\UserController@create')->name("user.create");
-Route::get('/user/display', 'App\Http\Controllers\UserController@display')->name("user.display");
+Route::get('/user/list', 'App\Http\Controllers\UserController@list')->name("user.list");
 Route::post('/user/save', 'App\Http\Controllers\UserController@save')->name("user.save");
 Route::post('/user/delete', 'App\Http\Controllers\UserController@delete')->name("user.delete");
 /* Routes Jonny Product */

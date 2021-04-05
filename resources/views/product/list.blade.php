@@ -36,13 +36,12 @@
                         <td>{{ $product->getManufacturer() }}</td>
                         <td>{{ $product->getQuantity() }}</td>
                         <td>{{ $product->getDescription() }}</td>
-                        <td><a class="btn btn-success" href="show/{{ $product->getId() }}">Show</a></td>
+                        <td><a class="btn btn-success" href="{{ route('product.show', $product->getId()) }}">Show</a></td>
                         <td>
                             <form action="{{ route('product.delete', ['id' => $product->getId()])}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <input class="btn btn-danger" type="submit" value="Delete" />
-                                <!--<input type="hidden" name="_method" value="delete" />-->
                             </form>
                         </td>
                         </tr>

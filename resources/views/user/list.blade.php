@@ -22,7 +22,7 @@
                         <ul id="display-list">
                             @foreach($data["users"] as $user)
                                 <li>
-                                    <a href="show/{{$user->getId()}}"> ID: {{ $user->getId() }}</a>
+                                    <a href={{route("user.show", $user->getId()) }}> ID: {{ $user->getId() }}</a>
                                     <p >{{ $user->getFullName() }} </p>
                                 </li>
                             @endforeach
