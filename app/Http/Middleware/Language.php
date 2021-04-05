@@ -25,7 +25,7 @@ class Language
             App::setlocale(session('applocate'));
         }else{
             session()->put('applocate', config('app.fallback_locale'));
-            setLocale(LC_TIME, 'es_ES.utf8');
+            setLocale(LC_TIME, 'en_US.utf8');
             Carbon::setlocale(session('applocate'));
             App::setlocale(config('app.falback_locale'));
         }

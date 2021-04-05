@@ -42,7 +42,6 @@
                                 @csrf
                                 @method('DELETE')
                                 <input class="btn btn-danger" type="submit" value="{!! trans('changePages.delete') !!}" />
-                                <!--<input type="hidden" name="_method" value="delete" />-->
                             </form>
                         </td>
                         </tr>

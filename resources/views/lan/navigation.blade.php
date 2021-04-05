@@ -10,8 +10,8 @@
                         {!! trans('navbar.selectLanguage') !!}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="{{route('set_language', 'es')}}">{!! trans('navbar.es') !!}</a>
-                      <a class="dropdown-item" href="{{route('set_language', 'en')}}">{!! trans('navbar.en') !!}</a>
+                      <a class="dropdown-item" href="{{route('lang.setLanguage', 'es')}}">{!! trans('navbar.es') !!}</a>
+                      <a class="dropdown-item" href="{{route('lang.setLanguage', 'en')}}">{!! trans('navbar.en') !!}</a>
                   </div>
               </li>
             </ul>

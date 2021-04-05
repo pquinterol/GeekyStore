@@ -22,7 +22,8 @@ Route::get('/admin/index', 'App\Http\Controllers\Admin\AdminController@index')->
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/set_language/{lang}' , 'App\Http\Controllers\Controller@set_language')->name('set_language');
+Route::get('/setLanguage/{lang}' , 'App\Http\Controllers\Controller@set_language')->name('lang.setLanguage');
+
 //Order Routes
 Route::get('/order/create', 'App\Http\Controllers\OrderController@create')->name("order.create");
 Route::delete('/order/delete', 'App\Http\Controllers\OrderController@delete')->name("order.delete");
@@ -33,7 +34,7 @@ Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')
 /* Routes Moli User - Wishlist */
 Route::get('/user/show/{id}', 'App\Http\Controllers\UserController@show')->name("user.show");
 Route::get('/user/create', 'App\Http\Controllers\UserController@create')->name("user.create");
-Route::get('/user/display', 'App\Http\Controllers\UserController@display')->name("user.display");
+Route::get('/user/list', 'App\Http\Controllers\UserController@list')->name("user.list");
 Route::post('/user/save', 'App\Http\Controllers\UserController@save')->name("user.save");
 Route::delete('/user/delete', 'App\Http\Controllers\UserController@delete')->name("user.delete");
 /* Routes Jonny Product */
@@ -50,3 +51,9 @@ Route::get('/item/create', 'App\Http\Controllers\ItemController@create')->name("
 Route::post('/item/save', 'App\Http\Controllers\ItemController@save')->name("item.save");
 Route::get('/item/list', 'App\Http\Controllers\ItemController@list')->name("item.list");
 Route::delete('/item/delete', 'App\Http\Controllers\ItemController@delete')->name("item.delete");
+//Maintenance Routes
+Route::get('/maintenance/create', 'App\Http\Controllers\MaintenanceController@create')->name("maintenance.create");
+Route::delete('/maintenance/delete', 'App\Http\Controllers\MaintenanceController@delete')->name("maintenance.delete");
+Route::post('/maintenance/save', 'App\Http\Controllers\MaintenanceController@save')->name("maintenance.save");
+Route::get('/maintenance/show/{id}', 'App\Http\Controllers\MaintenanceController@show')->name("maintenance.show");
+Route::get('/maintenance/list', 'App\Http\Controllers\MaintenanceController@list')->name("maintenance.list");

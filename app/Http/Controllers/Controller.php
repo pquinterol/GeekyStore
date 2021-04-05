@@ -13,6 +13,7 @@ class Controller extends BaseController
 
     public function set_language($lang)
     {
+        echo $lang;
         if(array_key_exists($lang, config('language'))){
             session()->put('applocate', $lang);
         }

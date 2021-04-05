@@ -19,11 +19,15 @@ class ProductController extends Controller
     }
     
     public function show($id)
-    {   
-        $data = []; 
-        $product = Product::findOrFail($id);
-        $data["title"] = $product->getName();
-        $data["product"] = $product;
+    {
+        try
+        {
+            $data = Product::findOrFail($id);
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return redirect('product.list', 'name');
+        }
 
         return view('product.show')->with("data",$data);
     }
@@ -48,7 +52,6 @@ class ProductController extends Controller
 
     public function create()
     {
-        //$this->middleware('admin');        
         $data = []; 
         $data["title"] = "Create product";
         $data["products"] = Product::all();
