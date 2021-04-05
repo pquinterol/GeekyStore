@@ -41,3 +41,10 @@ Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->nam
 Route::get('/product/list/discountOnly', 'App\Http\Controllers\ProductController@listDiscountOnly')->name("product.discountOnly");
 Route::get('/product/list/{param}', 'App\Http\Controllers\ProductController@listBy')->name("product.list");
 Route::delete('/product/delete', 'App\Http\Controllers\ProductController@delete')->name("product.delete");
+
+//Maintenance Routes
+Route::get('/maintenance/create', 'App\Http\Controllers\MaintenanceController@create')->name("maintenance.create");
+Route::delete('/maintenance/delete', 'App\Http\Controllers\MaintenanceController@delete')->name("maintenance.delete");
+Route::post('/maintenance/save', 'App\Http\Controllers\MaintenanceController@save')->name("maintenance.save");
+Route::get('/maintenance/show/{id}', 'App\Http\Controllers\MaintenanceController@show')->name("maintenance.show");
+Route::get('/maintenance/list', 'App\Http\Controllers\MaintenanceController@list')->name("maintenance.list");

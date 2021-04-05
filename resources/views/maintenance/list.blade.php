@@ -15,21 +15,22 @@
                         <th scope="col">Id</th>
                         <th scope="col">Status</th>
                         <th scope="col">Price (USD)</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Date</th>
-                        <th scope="col"></th>
                         <th scope="col"></th>
                         </tr>
                     </thead>
-                    @foreach($data["orders"] as $order)
+                    @foreach($data["maintenances"] as $maintenance)
                     <tbody>
                         <tr>
-                        <th scope="row">{{ $order->getId() }}</th>
-                        <td>{{ $order->getStatus() }}</td>
-                        <td>{{ $order->getPrice() }}</td>
-                        <td>{{ $order->getDate() }}</td>
-                        <td><a class="btn btn-success" href="show/{{ $order->getId() }}">Show</a></td>
+                        <th scope="row">{{ $maintenance->getId() }}</th>
+                        <td>{{ $maintenance->getStatus() }}</td>
+                        <td>{{ $maintenance->getPrice() }}</td>
+                        <td>{{ $maintenance->getDescription() }}</td>
+                        <td>{{ $maintenance->getDate() }}</td>
+                        <td><a class="btn btn-success" href="show/{{ $maintenance->getId() }}">Show</a></td>
                         <td>
-                            <form action="{{ route('order.delete', ['id' => $order->getId()])}}" method="post">
+                            <form action="{{ route('maintenance.delete', ['id' => $maintenance->getId()])}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <input class="btn btn-danger" type="submit" value="Delete" />
