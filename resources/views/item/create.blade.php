@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <form class="row g-3" method="POST" action="{{ route('item.save') }}">
                         <div class="col-12">
-                            <p class="alert alert-success">@include('util.message')</p>
+                            @include('util.message')
                         </div>
 
                         @csrf

@@ -13,9 +13,14 @@
             <div class="divider-custom-line"></div>
         </div>
         <!-- Portfolio Grid Items-->
-
-        <a href="product/list/name" class="btn btn-primary btn-lg" role="button" aria-pressed="true">List Products</a>
-        <a href="order/list/created_at" class="btn btn-primary btn-lg" role="button" aria-pressed="true">List Orders</a>
+        <div class="col-md-6 col-lg-4 mb-5">
+            <a href="product/list/name" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.products') !!}</a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-5">
+            <a href="order/list/created_at" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.orders') !!}</a>
+        </div>
+        
+        
         <div class="row">
             <!-- Portfolio Item 1-->
             <div class="col-md-6 col-lg-4 mb-5">

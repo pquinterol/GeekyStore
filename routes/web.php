@@ -15,13 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name("home.index");
 
+
 //Admin Panel
 Route::get('/admin/index', 'App\Http\Controllers\Admin\AdminController@index')->name("admin.home.index");
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/set_language/{lang}' , 'App\Http\Controllers\Controller@set_language')->name('set_language');
 //Order Routes
 Route::get('/order/create', 'App\Http\Controllers\OrderController@create')->name("order.create");
 Route::delete('/order/delete', 'App\Http\Controllers\OrderController@delete')->name("order.delete");

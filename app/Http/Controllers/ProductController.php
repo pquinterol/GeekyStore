@@ -19,15 +19,11 @@ class ProductController extends Controller
     }
     
     public function show($id)
-    {
-        try
-        {
-            $product = Product::findOrFail($id);
-        }
-        catch(ModelNotFoundException $e)
-        {
-            return redirect('/product/list');
-        }
+    {   
+        $data = []; 
+        $product = Product::findOrFail($id);
+        $data["title"] = $product->getName();
+        $data["product"] = $product;
 
         return view('product.show')->with("data",$data);
     }

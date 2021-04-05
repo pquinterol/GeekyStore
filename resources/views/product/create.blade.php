@@ -8,36 +8,46 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create product</div>
+                <div class="card-header">{!! trans('product.create') !!}</div>
                 <div class="card-body">
                     <form class="row g-3" method="POST" action="{{ route('product.save') }}">
                         <div class="col-12">
-                            <p class="alert alert-success">@include('util.message')</p>
+                            @include('util.message')
                         </div>
 
                         @csrf
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter Name" name="name" value="{{ old('name') }}" required/>
+                        <div class="col-12">
+                            <label for="EnterProduct" class="form-label">{!! trans('product.name') !!}</label>
+                            <input type="text" class="form-control" id="EnterProduct" name="name" value="{{ old('name') }}" required/>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter Price" name="price" value="{{ old('price') }}" required/>
+                        <div class="col-12">
+                            <label for="EnterPrice" class="form-label">{!! trans('product.price') !!}</label>
+                            <input type="text" class="form-control" id="EnterPrice" name="price" value="{{ old('price') }}" required/>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter Discount" name="discount" value="{{ old('discount') }}" required/>
+                        <div class="col-12">
+                            <label for="EnterDiscount" class="form-label">{!! trans('product.discount') !!}</label>
+                            <input type="text" class="form-control" id="EnterDiscount" name="discount" value="{{ old('discount') }}" required/>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter Category" name="category" value="{{ old('category') }}" required/>
+                        <div class="col-12">
+                            <label for="EnterCategory" class="form-label">{!! trans('product.category') !!}</label>
+                            <input type="text" class="form-control" id="EnterCategory" name="category" value="{{ old('category') }}" required/>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter Manufacturer" name="manufacturer" value="{{ old('manufacturer') }}" required/>
+                        <div class="col-12">
+                            <label for="EnterManufacturer" class="form-label">{!! trans('product.manufacturer') !!}</label>
+                            <input type="text" class="form-control" id="EnterManufacturer" name="manufacturer" value="{{ old('manufacturer') }}" required/>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter Quantity" name="quantity" value="{{ old('quantity') }}" required/>
+                        <div class="col-12">
+                            <label for="EnterQuantity" class="form-label">{!! trans('product.quantity') !!}</label>
+                            <input type="text" class="form-control" id="EnterQuantity" name="quantity" value="{{ old('quantity') }}" required/>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter Description" name="description" value="{{ old('description') }}" required/>
+                        <div class="col-12">
+                            <label for="EnterDescription" class="form-label">{!! trans('product.description') !!}</label>
+                            <input type="text" class="form-control" id="EnterDescription" name="description" value="{{ old('description') }}" required/>
                         </div>
-                        <input type="submit" class="btn btn-success btn-lg" value="Send" />
+                        <div class="col-12">
+                            <input type="submit" class="btn btn-success btn-lg" value="{!! trans('product.send') !!}" />
+                        </div>
+                        
                     </form>
                 </div>
             </div>
