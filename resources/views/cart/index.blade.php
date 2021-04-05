@@ -9,19 +9,20 @@
     <div class="col-md-12">
         @include('util.message')
         <ul id="errors">
-            <div>
-                <a href="discountOnly" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Discount Only</a>
+            <div class="row justify-content-center">
+                <a href={{ route("cart.index") }} class="btn btn-primary btn-lg" role="button" aria-pressed="true">Buy Now</a>
+                <a href={{ route("cart.removeAll") }} class="btn btn-danger btn-lg" role="button" aria-pressed="true">Empty Cart</a>
             </div>
             <table class="table">
                     <thead>
                         <tr>
                         <th scope="col">Id</th>
-                        <th scope="col"><a href="name" role="button" aria-pressed="true">Name</a></th>
-                        <th scope="col"><a href="price" role="button" aria-pressed="true">Price</a></th>
-                        <th scope="col"><a href="discount" role="button" aria-pressed="true">Discount</a></th>
-                        <th scope="col"><a href="category" role="button" aria-pressed="true">Category</a></th>
-                        <th scope="col"><a href="manufacturer" role="button" aria-pressed="true">Manufacturer</a></th>
-                        <th scope="col"><a href="quantity" role="button" aria-pressed="true">Quantity</a></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Discount</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Manufacturer</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Description</th>
                         </tr>
                     </thead>
@@ -36,15 +37,9 @@
                         <td>{{ $product->getManufacturer() }}</td>
                         <td>{{ $product->getQuantity() }}</td>
                         <td>{{ $product->getDescription() }}</td>
-                        <td><a class="btn btn-success" href="{{ route('product.show', $product->getId()) }}">Show</a></td>
+                        <td><a class="btn btn-success" href="{{ route('product.show', $product->getId()) }}">Details</a></td>
                         <td><a class="btn btn-success" href="{{ route('cart.add', $product->getId()) }}">Add to Cart</a></td>
-                        <td>
-                            <form action="{{ route('product.delete', ['id' => $product->getId()])}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <input class="btn btn-danger" type="submit" value="Delete" />
-                            </form>
-                        </td>
+                        <td><a class="btn btn-danger" href="{{ route('cart.remove', $product->getId()) }}">Remove</a></td>
                         </tr>
                     </tbody>
                     @endforeach
