@@ -9,16 +9,18 @@
             <div class="card">
                 <div class="card-header">{{ $data->getFullName() }}</div>
                 <div class="card-body">
-                    <b>Type:</b> {{ $data->getType() }}<br /><br />
-                    <b>Username:</b> {{ $data->getUsername() }}<br />
-                    <b>Password:</b> {{ $data->getPassword() }}<br />   
+                    <b>{!! trans('user.type') !!}</b> {{ $data->getType() }}<br /><br />
+                    <b>{!! trans('user.username') !!}</b> {{ $data->getUsername() }}<br />
+                    <b>{!! trans('user.password') !!}</b> {{ $data->getPassword() }}<br />   
                     <br>
                     <form method="POST" action="{{ route('user.delete') }}">
                     @csrf
                     @method('DELETE')
                         <input type="text" style="display:none" name="id" value="{{ $data->getId() }}" />
-                        <input type="submit" class="btn btn-danger btn-lg" value="Delete User" />
+                        <a  class="btn btn-secondary btn-lg" href="{{route('user.display')}}">{!! trans('user.back') !!}</a>
+                        <input type="submit" class="btn btn-danger btn-lg" value="{!! trans('user.delete') !!}" />
                     </form>
+                    
                 </div>
             </div>
         </div>
