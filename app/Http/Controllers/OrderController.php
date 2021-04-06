@@ -51,29 +51,14 @@
         return view('order.show')->with("data",$order);
      }
 
-     public function list()
-     {
-        $data = [];
-        $data["title"] = "Orders";
-        
-        if(Auth::user()->getType() == "admin") {
-            $data["orders"] = Order::orderBy('created_at','desc')->get();
-        }
-        else {
-            $data["order"] = Auth::user()->getOrders();
-        }
-
-        return view('order.list')->with('data',$data);
-     }
-
      public function delete(Request $request)
      {
         $id = $request->id;
         Order::where('id',$id)->delete();
-        return redirect()->route('order.list', 'created_at')->with('success','Order deleted successfully!!');
+        return redirect()->route('order.list', 'created_at')->with('success', 'Order deleted successfully!!');
      }
 
-     public function listBy($param)
+     public function listBy($param = 'created_at')
     {
         $data = []; 
         $data["title"] = "List Orders";
