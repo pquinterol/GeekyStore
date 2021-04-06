@@ -63,6 +63,13 @@ class Item extends Model
         $this->attributes['product'] = $product;
     }
 
+    public static function validateId($data)
+    {
+        $data->validate([
+            "id" => "required",
+        ]);
+    }
+
     public static function validation($data)
     {
         return  $data->validate([
@@ -73,11 +80,5 @@ class Item extends Model
             "order" => "required|numeric|gt:0"
         ]);
     }
-
-    public static function validateId($data)
-    {
-        $data->validate([
-            "id" => "required",
-        ]);
-    }
+    
 }

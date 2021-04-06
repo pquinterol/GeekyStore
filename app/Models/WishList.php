@@ -42,6 +42,13 @@ class Wishlist extends Model
         return $this->user;
     }
 
+    public static function validateId($data)
+    {
+        $data->validate([
+            "id" => "required",
+        ]);
+    }
+
     public static function validation($data)
     {
         return  $data->validate([

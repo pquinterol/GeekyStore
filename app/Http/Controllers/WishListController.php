@@ -57,7 +57,7 @@ class WishListController extends Controller
     }
 
 
-    public function delete($id)
+    public function delete(Request $request)
     {
         Wishlist::validateId($request);
         Wishlist::where('id',$request["id"])->delete();
