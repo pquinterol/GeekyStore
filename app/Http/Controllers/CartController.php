@@ -9,8 +9,8 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $data = array();
-        $ids = $request->session()->get("products"); //obtenemos las ids de los productos guardados en session.
-        $products = Product::where('id', '=',$ids)->get();
+        $ids = $request->session()->get("products");
+        $products = Product::whereIn('id', $ids)->get();
         $data["title"] = "Cart";
         $data["products"] = $products;
 
