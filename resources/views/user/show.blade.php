@@ -17,7 +17,7 @@
                         @csrf
                         @method('DELETE')
                         <input type="text" style="display:none" name="id" value="{{ $data->getId() }}" />
-                        <a  class="btn btn-secondary btn-lg" href="{{route('user.display')}}">{!! trans('changePages.back') !!}</a>
+                        <a  class="btn btn-secondary btn-lg" href="{{route('user.list')}}">{!! trans('changePages.back') !!}</a>
                         <input type="submit" class="btn btn-danger btn-lg" value="{!! trans('changePages.delete') !!}" />
                     </form>
                     
