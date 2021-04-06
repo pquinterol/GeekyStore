@@ -20,6 +20,7 @@
                 @endif
                 <form method="POST" action="{{ route('order.save') }}">
                     @csrf
+                    <input type="hidden" placeholder="" name="user" value="{{ Auth::user()->getId() }}" />
                     <input type="text" placeholder="{!! trans('order.totalPrice') !!}" name="price" value="{{ old('price') }}" />
                     <input type="submit" value="{!! trans('order.send') !!}" />
                 </form>
