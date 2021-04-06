@@ -11,12 +11,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function set_language($lang)
+    public function swap($lang)
     {
-        echo $lang;
-        if(array_key_exists($lang, config('language'))){
-            session()->put('applocate', $lang);
-        }
-        return back();
+        // Almacenar el lenguaje en la session
+        session()->put('locale', $lang);
+        return redirect()->back();
     }
 }

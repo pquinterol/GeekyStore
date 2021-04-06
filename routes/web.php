@@ -22,7 +22,7 @@ Route::get('/admin/index', 'App\Http\Controllers\Admin\AdminController@index')->
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/setLanguage/{lang}' , 'App\Http\Controllers\Controller@set_language')->name('lang.setLanguage');
+Route::get('lang/{lang}', 'App\Http\Controllers\Controller@swap')->name('lang.swap');
 
 //Order Routes
 Route::get('/order/create', 'App\Http\Controllers\OrderController@create')->name("order.create");
