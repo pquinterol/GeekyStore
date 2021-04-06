@@ -21,7 +21,7 @@
                     <b>{!! trans('product.pQuantity') !!}</b> {{ $data->getQuantity() }}<br /><br />
                     <b>{!! trans('product.pDescription') !!}</b> {{ $data->getDescription() }}<br /><br />
                     <a href="{{ route('home.index')}}" class="btn btn-primary">{!! trans('changePages.home') !!}</a>
-                    <a href="{{ route('product.list', $data->getName())}}" class="btn btn-dark">{!! trans('changePages.back') !!}</a>
+                    <a href="{{ route('product.list', 'name')}}" class="btn btn-dark">{!! trans('changePages.back') !!}</a>
                 </div>
             </div>
         </div>

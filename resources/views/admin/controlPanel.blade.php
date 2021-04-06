@@ -9,8 +9,8 @@
                 <h2>{!! trans('user.admin') !!}</h2></div>
 
                 <div class="card-body">
-                    <a href="../user/display" class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('user.showUser') !!}</a>
-                    <a href="../product/create" class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('user.createProduct') !!}</a>
+                    <a href={{ route('user.list', 'name') }} class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('user.showUser') !!}</a>
+                    <a href={{ route('product.create') }} class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('user.createProduct') !!}</a>
                 </div>
             </div>
         </div>
