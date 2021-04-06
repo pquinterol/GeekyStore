@@ -23,7 +23,7 @@ class CreateMaintenancesTable extends Migration
         Schema::create('maintenances', function (Blueprint $table) 
         {
             $table->bigIncrements('id');
-            $table->text('status')->default('In Process');
+            $table->string('status')->default('In Process');
             $table->double('price');
             $table->text('description');
             $table->unsignedBigInteger('user');

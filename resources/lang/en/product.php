@@ -25,12 +25,12 @@ return [
     'viewDescription'  => 'Description',
 
     /*Show Products*/
-    'pId'  => 'Product Id: ',
-    'pName'  => 'Product Name: ',
-    'pPrice'  => 'Product Price: ',
+    'pId'  => 'Product Id',
+    'pName'  => 'Product Name',
+    'pPrice'  => 'Product Price',
     'pDiscount'  => 'Product Discount',
     'pCategory'  => 'Product Category',
     'pManufacturer'  => 'Product Manufacturer',
-    'pQuantity'  => 'Product Quantity: ',
-    'pDescription'  => 'Product Description: ',
+    'pQuantity'  => 'Product Quantity',
+    'pDescription'  => 'Product Description',
 ];

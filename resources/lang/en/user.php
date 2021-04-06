@@ -10,7 +10,7 @@ return [
     'display'  => 'Display Users',
 
     /*Show User*/
-    'type'  => 'Type: ',
-    'username'  => 'Username: ',
-    'password'  => 'Password: ',
+    'type'  => 'Type',
+    'username'  => 'Username',
+    'password'  => 'Password',
 ];

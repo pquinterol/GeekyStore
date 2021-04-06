@@ -25,12 +25,12 @@ return [
     'viewDescription'  => 'Descripcion',
 
     /*Show Products*/
-    'pId'  => 'Id del Producto: ',
-    'pName'  => 'Nombre del Producto: ',
-    'pPrice'  => 'Precio del Producto: ',
+    'pId'  => 'Id del Producto',
+    'pName'  => 'Nombre del Producto',
+    'pPrice'  => 'Precio del Producto',
     'pDiscount'  => 'Descuento del Producto',
     'pCategory'  => 'Categoria del Prodcuto',
     'pManufacturer'  => 'Marca del Producto',
-    'pQuantity'  => 'Cantidad del Producto: ',
-    'pDescription'  => 'Descripcion del Producto: ',
+    'pQuantity'  => 'Cantidad del Producto',
+    'pDescription'  => 'Descripcion del Producto',
 ];

@@ -10,7 +10,7 @@ return [
     'display'  => 'Mostrar Usuarios',
 
     /*Show User*/
-    'type'  => 'Tipo: ',
-    'username'  => 'Nombre de Usuario: ',
-    'password'  => 'Clave: ',
+    'type'  => 'Tipo',
+    'username'  => 'Nombre de Usuario',
+    'password'  => 'Clave',
 ];
