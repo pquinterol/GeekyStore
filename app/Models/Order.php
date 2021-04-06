@@ -16,6 +16,7 @@ class Order extends Model
      */
     protected $fillable = [
         'status',
+        'user',
         'price',
         'created_at'
     ];
@@ -58,6 +59,16 @@ class Order extends Model
     public function setDate($date)
     {
         $this->attributes['created_at'] = $date;
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'foreign_key');
+    }
+
+    public function getUser()
+    {
+        return $this->user;
     }
 
     public static function validateData($data)

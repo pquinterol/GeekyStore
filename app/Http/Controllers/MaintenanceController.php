@@ -10,13 +10,6 @@
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-
-            if(auth()->check()) {
-                return $next($request);
-            }
-            return redirect()->route('home.index');
-        });
     }
 
      public function create()

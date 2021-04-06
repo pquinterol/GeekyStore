@@ -3,9 +3,15 @@
 
  use Illuminate\Http\Request;
  use App\Models\Order;
+ use Illuminate\Support\Facades\Auth;
 
  class OrderController extends Controller
  {
+     public function __construct()
+     {
+        $this->middleware('auth');
+     }
+
      public function create()
      {
          $data = [];
@@ -49,7 +55,14 @@
      {
         $data = [];
         $data["title"] = "Orders";
-        $data["orders"] = Order::orderBy('created_at')->get();
+        
+        if(Auth::user()->getType() == "admin") {
+            $data["orders"] = Order::orderBy('created_at','desc')->get();
+        }
+        else {
+            $data["order"] = Auth::user()->getOrders();
+        }
+
         return view('order.list')->with('data',$data);
      }
 
@@ -64,7 +77,12 @@
     {
         $data = []; 
         $data["title"] = "List Orders";
-        $data["orders"] = Order::orderBy($param,'DESC')->get();
+        if(Auth::user()->getType() == "admin") {
+            $data["orders"] = Order::orderBy($param,'desc')->get();
+        }
+        else {
+            $data["orders"] = Auth::user()->getOrders();
+        }
 
         return view('order.list')->with("data",$data);
     }
@@ -74,8 +92,16 @@
     {
         $data = []; 
         $data["title"] = "List discount Orders";
-        $data["orders"] = Order::where('status', 'In Process')->get();
-
+        if(Auth::user()->getType() == "admin") {
+            $data["orders"] = Order::where('status', 'In Process')->get();
+        }
+        else {
+            $data["orders"] = Auth::user()
+                            ->getOrders()
+                            ->intersect(
+                                Order::where('status', 'In Process')->get()
+                            );
+        }
         return view('order.list')->with("data",$data);
     }
  }

@@ -25,7 +25,8 @@ class OrderFactory extends Factory
         return [
             //'status' => $this->faker->numberBetween($min=20, $max = 9000),
             'status' => "Paid",
-            'price' => $this->faker->numberBetween($min=20, $max = 9000),
+            "user" => $this->faker->numberBetween($min = 1, $max=10),
+            'price' => $this->faker->numberBetween($min = 20, $max = 9000),
         ];
     }
 }
