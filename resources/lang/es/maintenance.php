@@ -15,7 +15,7 @@ return[
 
 
     /*Show Maintenance*/
-    'User'  => 'User',
+    'user'  => 'User',
     'totalPrice'  => 'Precio Total (USD)',
     
 
