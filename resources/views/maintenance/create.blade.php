@@ -9,7 +9,7 @@
         <div class="col-md-8">
         @include('util.message')
             <div class="card">
-                <div class="card-header">Create Maintenance</div>
+                <div class="card-header"><h2>{!! trans('maintenance.createMaintenance') !!}</h2></div>
                 <div class="card-body">
                 @if($errors->any())
                 <ul id="errors">
@@ -21,9 +21,15 @@
                 <form method="POST" action="{{ route('maintenance.save') }}">
                     @csrf
                     <input type="hidden" placeholder="" name="user" value="{{ Auth::user()->getId() }}" />
-                    <input type="text" placeholder="Enter Total Price" name="price" value="{{ old('price') }}" />
-                    <input type="text" placeholder="Enter a Description" name="description" value="{{ old('description') }}" />
-                    <input type="submit" value="Send" />
+                    <div class="col-12">
+                    <label for="EnterPrice" class="form-label">{!! trans('maintenance.enterPrice') !!}</label>
+                    <input type="text" class="form-control" name="price" id="EnterPrice" value="{{ old('price') }}" />
+                    </div>
+                    <div class="col-12">
+                    <label for="EnterDescription" class="form-label">{!! trans('maintenance.enterDescription') !!}</label>
+                    <input type="text" class="form-control" name="description" id="EnterDescription" value="{{ old('description') }}" />
+                    <input class="btn btn-success btn-lg" type="submit" value="{!! trans('changePages.send') !!}" />
+                    </div>
                 </form>
                 </div>
             </div>

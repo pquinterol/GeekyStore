@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMaintenancesTable extends Migration
+class CreateItemsTable extends Migration
 {
 
     /**
@@ -20,14 +20,15 @@ class CreateMaintenancesTable extends Migration
     public function up()
     {
 
-        Schema::create('maintenances', function (Blueprint $table) 
+        Schema::create('items', function (Blueprint $table) 
         {
             $table->bigIncrements('id');
-            $table->string('status')->default('In Process');
-            $table->double('price');
-            $table->text('description');
-            $table->unsignedBigInteger('user');
-            $table->foreign('user')->references('id')->on('users');
+            $table->integer('quantity');
+            $table->float('subtotal');
+            $table->unsignedBigInteger('product');
+            $table->foreign('product')->references('id')->on('products');
+            $table->unsignedBigInteger('order');
+            $table->foreign('order')->references('id')->on('orders');
             $table->timestamps();
         });
 
@@ -46,7 +47,7 @@ class CreateMaintenancesTable extends Migration
 
     {
 
-    Schema::dropIfExists('products');
+    Schema::dropIfExists('items');
 
     }
 }

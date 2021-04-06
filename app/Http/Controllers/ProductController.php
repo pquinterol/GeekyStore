@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
-
 {
     public function __construct()
     {
@@ -32,22 +32,20 @@ class ProductController extends Controller
         return view('product.show')->with("data",$data);
     }
 
-    public function listBy($param)
+    public function listBy($request)
     {
         $data = []; 
         $data["title"] = "List products";
-        $data["products"] = Product::orderBy($param)->get();
+        $data["products"] = Product::orderBy($request)->get();
 
         return view('product.list')->with("data",$data);
     }
-
    
     public function listDiscountOnly()
     {
         $data = []; 
         $data["title"] = "List discount productss";
         $data["products"] = Product::where('discount', '>',0)->orderBy('discount','desc')->get();
-        
 
         return view('product.list')->with("data",$data);
     }
@@ -58,25 +56,32 @@ class ProductController extends Controller
         $data["title"] = "Create product";
         $data["products"] = Product::all();
 
-
         return view('product.create')->with("data",$data);
     }
-    
 
     public function save(Request $request)
     {
-        Product::validation($request);
-        $data = Product::create($request->only(["name","price","discount","category","manufacturer","quantity","description"]));
+        $status = '';
+        $message = '';
+
+        if(Product::validation($request))
+        {
+            Product::create($request->all());
+            $status = 'success';
+            $message = 'Product created successfully!!';
+        } else {
+            $status = 'error';
+            $message = 'Unable to create product';
+        }
         
-        return back()->with('success','Item created successfully!');
+        return back()->with($status,$message);
     }
 
     public function delete(Request $request)
     {   
-        $request->validate([
-            "id" => "required",
-        ]);
+        Product::validateId($request);
         Product::where('id',$request["id"])->delete();
-        return redirect()->route('product.list')->with('success','Order deleted successfully!!');
+
+        return redirect()->route('product.list')->with('success','Product deleted successfully!!');
     }
 }

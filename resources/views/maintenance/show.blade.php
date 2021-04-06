@@ -10,13 +10,17 @@
       <div class="card">
         <div class="card-header">{{ $data->getId() }}</div>
           <div class="card-body">
-            <b>ID:</b> {{ $data->getId() }}<br />
-            <b>User:</b> {{ $data->getUser() }}<br />
-            <b>Status:</b> {{ $data->getStatus() }}<br />
-            <b>Total Price(USD):</b> {{ $data->getPrice() }}<br />
-            <b>Description:</b> {{ $data->getDescription() }}<br />
-            <b>Date:</b> {{ $data->getDate() }}<br />
+            <b>{!! trans('maintenance.id') !!}</b> {{ $data->getId() }}<br />
+            <b>{!! trans('maintenance.user') !!}</b> {{ $data->getUser() }}<br />
+            <b>{!! trans('maintenance.status') !!}</b> {{ $data->getStatus() }}<br />
+            <b>{!! trans('maintenance.totalPrice') !!}</b> {{ $data->getPrice() }}<br />
+            <b>{!! trans('maintenance.description') !!}</b> {{ $data->getDescription() }}<br />
+            <b>{!! trans('maintenance.date') !!}</b> {{ $data->getDate() }}<br />
           </div>
+        </div>
+        <div class="row justify-content-center">
+          <a href="{{ route('home.index')}}" class="btn btn-primary">{!! trans('changePages.home') !!}</a>
+          <a href="{{ route('maintenance.list')}}" class="btn btn-dark">{!! trans('changePages.back') !!}</a>
         </div>
       </div>
     </div>

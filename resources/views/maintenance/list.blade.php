@@ -12,11 +12,11 @@
             <table class="table">
                     <thead>
                         <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Price (USD)</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Date</th>
+                        <th scope="col">{!! trans('maintenance.id') !!}</th>
+                        <th scope="col">{!! trans('maintenance.status') !!}</th>
+                        <th scope="col">{!! trans('maintenance.price') !!}</th>
+                        <th scope="col">{!! trans('maintenance.description') !!}</th>
+                        <th scope="col">{!! trans('maintenance.date') !!}</th>
                         <th scope="col"></th>
                         </tr>
                     </thead>
@@ -28,18 +28,19 @@
                         <td>{{ $maintenance->getPrice() }}</td>
                         <td>{{ $maintenance->getDescription() }}</td>
                         <td>{{ $maintenance->getDate() }}</td>
-                        <td><a class="btn btn-success" href="show/{{ $maintenance->getId() }}">Show</a></td>
+                        <td><a class="btn btn-success" href="{{ route('maintenance.show' , $maintenance->getId())}}">{!! trans('changePages.show') !!}</a></td>
                         <td>
                             <form action="{{ route('maintenance.delete', ['id' => $maintenance->getId()])}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <input class="btn btn-danger" type="submit" value="Delete" />
+                                <input class="btn btn-danger" type="submit" value="{!! trans('changePages.delete') !!}" />
                             </form>
                         </td>
                         </tr>
                     </tbody>
                     @endforeach
                 </table>
+                <a class="btn btn-primary" href="{{ route('home.index') }}">{!! trans('changePages.home') !!}</a>
 
         </ul>
 
