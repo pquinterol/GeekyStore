@@ -45,8 +45,8 @@
                             <input type="text" class="form-control" id="EnterDescription" name="description" value="{{ old('description') }}" required/>
                         </div>
                         <div class="col-12">
-                            <a  class="btn btn-secondary btn-lg" href="{{route('admin.home.index')}}">{!! trans('user.back') !!}</a>
-                            <input type="submit" class="btn btn-success btn-lg" value="{!! trans('product.send') !!}" />
+                            <a  class="btn btn-secondary btn-lg" href="{{route('admin.home.index')}}">{!! trans('changePages.back') !!}</a>
+                            <input type="submit" class="btn btn-success btn-lg" value="{!! trans('changePages.send') !!}" />
                         </div>
                         
                     </form>

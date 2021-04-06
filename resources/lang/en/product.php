@@ -11,10 +11,9 @@ return [
     'manufacturer'  => 'Enter Manufacturer',
     'quantity'  => 'Enter Quantity',
     'description' => 'Enter Description',
-    'send'  => 'Send',
 
     /*List Products*/
-    'list'  => 'List Products',
+    'list'  => 'Products List ',
     'onlyDis'  => 'Discount Only',
     'id'  => 'Id',
     'viewName'  => 'Name',
@@ -24,9 +23,6 @@ return [
     'viewManufacturer'  => 'Manufacturer',
     'viewQuantity'  => 'Quantity',
     'viewDescription'  => 'Description',
-    'show'  => 'Show',
-    'delete'  => 'Delete',
-    'home'  => 'Home',
 
     /*Show Products*/
     'pId'  => 'Product Id: ',

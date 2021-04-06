@@ -11,7 +11,6 @@ return [
     'manufacturer'  => 'Ingresar Marca',
     'quantity'  => 'Ingresar Cantidad',
     'description' => 'Ingresar Descripcion',
-    'send'  => 'Enviar',
 
     /*List Products*/
     'list'  => 'Lista de Productos',
@@ -24,9 +23,6 @@ return [
     'viewManufacturer'  => 'Marca',
     'viewQuantity'  => 'Cantidad',
     'viewDescription'  => 'Descripcion',
-    'show'  => 'Ver',
-    'delete'  => 'Borrar',
-    'home'  => 'Inicio',
 
     /*Show Products*/
     'pId'  => 'Id del Producto: ',

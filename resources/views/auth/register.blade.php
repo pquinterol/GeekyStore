@@ -6,7 +6,7 @@
         <div class="col-md-8">
             @include('util.message')
             <div class="card">
-                <div class="card-header">{!! trans('reg.register') !!}</div>
+                <div class="card-header"><h2>{!! trans('reg.register') !!}</h2></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

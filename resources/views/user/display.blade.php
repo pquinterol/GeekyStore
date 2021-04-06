@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h3>{!! trans('user.display') !!}</h3></div>
+                <div class="card-header"><h2>{!! trans('user.display') !!}</h2></div>
                 <div class="card-body">
                 @if($errors->any())
                 <ul id="errors">
@@ -28,7 +28,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <a  class="btn btn-secondary btn-lg" href="{{route('admin.home.index')}}">{!! trans('user.back') !!}</a>
+                    <a  class="btn btn-secondary btn-lg" href="{{route('admin.home.index')}}">{!! trans('changePages.back') !!}</a>
                 </div>
 
 

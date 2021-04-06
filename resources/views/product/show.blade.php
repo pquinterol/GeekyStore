@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                <h1>{{ $data["product"]->getName() }}</h1>
+                <h2>{{ $data["product"]->getName() }}</h2>
                 </div>
                 <div class="card-body">
                     <b>{!! trans('product.pId') !!}</b> {{ $id = $data["product"]->getId() }}<br /><br />
@@ -20,7 +20,7 @@
                     <b>{!! trans('product.pManufacturer') !!}</b> {{ $data["product"]->getManufacturer() }}<br /><br />
                     <b>{!! trans('product.pQuantity') !!}</b> {{ $data["product"]->getQuantity() }}<br /><br />
                     <b>{!! trans('product.pDescription') !!}</b> {{ $data["product"]->getDescription() }}<br /><br />
-                    <a href="{{ route('home.index')}}" class="btn btn-primary">{!! trans('product.home') !!}</a>
+                    <a href="{{ route('home.index')}}" class="btn btn-primary">{!! trans('changePages.home') !!}</a>
                     <!-- 
                         <a href="{{ route('product.list', '$name = $data["product"]->getName()')}}" class="btn btn-dark">Regresar</a>
                     -->

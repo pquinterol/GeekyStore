@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Create item</div>
+                <div class="card-header"><h2>Create item</h2></div>
                 <div class="card-body">
                     <form class="row g-3" method="POST" action="{{ route('item.save') }}">
                         <div class="col-12">
