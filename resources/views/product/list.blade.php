@@ -37,6 +37,7 @@
                         <td>{{ $product->getQuantity() }}</td>
                         <td>{{ $product->getDescription() }}</td>
                         <td><a class="btn btn-success" href="{{ route('product.show' , $product->getId()) }}">{!! trans('changePages.show') !!}</a></td>
+                        <td><a class="btn btn-success" href="{{ route('cart.add', $product->getId()) }}">{!! trans('cart.add') !!}</a></td>
                         <td>
                             <form action="{{ route('product.delete', ['id' => $product->getId()])}}" method="post">
                                 @csrf

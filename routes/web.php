@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('lang/{lang}', 'App\Http\Controllers\Controller@swap')->name('lang.swap');
 
-//Order Routes
+//Order Routes by Pedro
 Route::get('/order/create', 'App\Http\Controllers\OrderController@create')->name("order.create");
 Route::delete('/order/delete', 'App\Http\Controllers\OrderController@delete')->name("order.delete");
 Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("order.save");
@@ -51,9 +51,16 @@ Route::get('/item/create', 'App\Http\Controllers\ItemController@create')->name("
 Route::post('/item/save', 'App\Http\Controllers\ItemController@save')->name("item.save");
 Route::get('/item/list', 'App\Http\Controllers\ItemController@list')->name("item.list");
 Route::delete('/item/delete', 'App\Http\Controllers\ItemController@delete')->name("item.delete");
-//Maintenance Routes
+
+//Maintenance Routes by Pedro
 Route::get('/maintenance/create', 'App\Http\Controllers\MaintenanceController@create')->name("maintenance.create");
 Route::delete('/maintenance/delete', 'App\Http\Controllers\MaintenanceController@delete')->name("maintenance.delete");
 Route::post('/maintenance/save', 'App\Http\Controllers\MaintenanceController@save')->name("maintenance.save");
 Route::get('/maintenance/show/{id}', 'App\Http\Controllers\MaintenanceController@show')->name("maintenance.show");
 Route::get('/maintenance/list', 'App\Http\Controllers\MaintenanceController@list')->name("maintenance.list");
+
+//Cart Routes by Pedro
+Route::get('/cart/index', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
