@@ -7,7 +7,7 @@ return [
     'createProduct'  => 'Crear Producto',
 
     /*Display Users*/
-    'display'  => 'Mostrar Usuarios',
+    'display'  => 'Lista de Usuarios',
 
     /*Show User*/
     'type'  => 'Tipo',

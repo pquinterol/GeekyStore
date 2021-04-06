@@ -36,6 +36,13 @@
                         <td>{{ $product->getManufacturer() }}</td>
                         <td>{{ $product->getQuantity() }}</td>
                         <td>{{ $product->getDescription() }}</td>
+                        <td><form method="POST" action="{{ route('wishlist.save')}}">
+                                @csrf
+                                <input type="hidden" name="product" value="{{$product->getId()}}">
+                                <input type="hidden" name="user" value="{{Auth::user()->getId()}}">
+                                <input class="btn btn-success" type="submit" value="{!! trans('changePages.wishlist') !!}" />
+                            </form>
+                        </td>
                         <td><a class="btn btn-success" href="{{route('product.show' , $product->getId())}}">{!! trans('changePages.show') !!}</a></td>
                         <td>
                             <form action="{{ route('product.delete', ['id' => $product->getId()])}}" method="post">

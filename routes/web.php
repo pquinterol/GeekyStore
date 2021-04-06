@@ -31,7 +31,7 @@ Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("o
 Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
 Route::get('/order/list/InProcess', 'App\Http\Controllers\OrderController@inProcess')->name("order.inProcess");
 Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')->name("order.list");
-/* Routes Moli User - Wishlist */
+/* Routes Moli User */
 Route::get('/user/show/{id}', 'App\Http\Controllers\UserController@show')->name("user.show");
 Route::get('/user/create', 'App\Http\Controllers\UserController@create')->name("user.create");
 Route::get('/user/list', 'App\Http\Controllers\UserController@list')->name("user.list");
@@ -57,3 +57,8 @@ Route::delete('/maintenance/delete', 'App\Http\Controllers\MaintenanceController
 Route::post('/maintenance/save', 'App\Http\Controllers\MaintenanceController@save')->name("maintenance.save");
 Route::get('/maintenance/show/{id}', 'App\Http\Controllers\MaintenanceController@show')->name("maintenance.show");
 Route::get('/maintenance/list', 'App\Http\Controllers\MaintenanceController@list')->name("maintenance.list");
+/*Wishlist Routes*/
+Route::get('/wishlist/show/{id}', 'App\Http\Controllers\WishListController@show')->name("wishlist.show");
+Route::post('/wishlist/save', 'App\Http\Controllers\WishListController@save')->name("wishlist.save");
+Route::get('/wishlist/list', 'App\Http\Controllers\WishListController@list')->name("wishlist.list");
+Route::delete('/wishlist/delete', 'App\Http\Controllers\WishListController@delete')->name("wishlist.delete");
