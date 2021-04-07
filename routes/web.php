@@ -44,6 +44,7 @@ Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->nam
 Route::get('/product/list/discountOnly', 'App\Http\Controllers\ProductController@listDiscountOnly')->name("product.discountOnly");
 Route::get('/product/list/{param}', 'App\Http\Controllers\ProductController@listBy')->name("product.list");
 Route::delete('/product/delete', 'App\Http\Controllers\ProductController@delete')->name("product.delete");
+Route::get('/product/search', 'App\Http\Controllers\ProductController@search')->name("product.search");
 
 /* Routes Jonny Item */
 Route::get('/item/show/{id}', 'App\Http\Controllers\ItemController@show')->name("item.show");
@@ -67,4 +68,4 @@ Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')-
 Route::post('/cart/buyNow', 'App\Http\Controllers\CartController@buyNow')->name("cart.buyNow");
 
 //PDF
-Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.download");
+Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.buyNow");

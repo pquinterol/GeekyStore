@@ -7,4 +7,6 @@ return [
     'delete'  => 'Delete',
     'send'  => 'Send',
     'download'  => 'Download',
+    'search'  => 'Search',
+    'searchName'  => 'Search Name',
 ];

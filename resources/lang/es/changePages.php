@@ -7,4 +7,6 @@ return [
     'delete'  => 'Borrar',
     'send'  => 'Enviar',
     'download'  => 'Descargar',
+    'search'  => 'Buscar',
+    'searchName'  => 'Buscar Nombre',
 ];

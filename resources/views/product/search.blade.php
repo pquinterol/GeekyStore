@@ -59,6 +59,7 @@
                     @endforeach
                 </table>
                 <a class="btn btn-primary" href="{{route('home.index')}}">{!! trans('changePages.home') !!}</a>
+                <a class="btn btn-secondary" href="{{route('product.list', 'name')}}">{!! trans('changePages.back') !!}</a>
         </ul>
         
     </div>
