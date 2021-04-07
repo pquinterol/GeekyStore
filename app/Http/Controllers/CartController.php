@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Item;
+use App\Models\Order;
+
 
 class CartController extends Controller
 {
@@ -41,4 +44,49 @@ class CartController extends Controller
         $request->session()->flash('success', 'Your Cart has been emptied!');
         return back();
     }
+
+    public function buyNow(Request $request)
+    {   
+        $status = '';
+        $message = '';
+        $ids = $request->session()->get("products");
+        $products = Product::whereIn('id', $ids)->get();
+        $total = 0;
+        try{
+            foreach($products as $product)
+            {
+                $total = $total + $product->getPrice();
+            }
+            $order = Order::create([
+                'user'  => $request['user'],
+                'price' =>  $total
+            ]);
+
+            foreach($products as $product)
+            {   
+                
+
+                Item::create([
+                'quantity'  => '1',
+                'subtotal' => $product->getPrice(),
+                'product'  => $product->getId(),
+                'order'  => $order->getId()
+                ]);
+            }
+
+            $request->session()->forget('products');
+            $status = 'success';
+            $message = 'Order created successfully!!';
+            
+        }catch(Exception $e){
+            $status = 'error';
+            $message = 'Unable to create order';
+        }   
+        
+        
+        
+
+        return redirect()->route('order.list', 'created_at')->with($status,$message);
+    }
+
 }

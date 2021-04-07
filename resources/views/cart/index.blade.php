@@ -10,7 +10,12 @@
         @include('util.message')
         <ul id="errors">
             <div class="row justify-content-center">
-                <a href={{ route("cart.index") }} class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('cart.buyNow') !!}</a>
+            <form method="POST" action="{{ route('cart.buyNow') }}">
+                    @csrf
+                    <input type="hidden" placeholder="" name="user" value="{{ Auth::user()->getId() }}" />
+                    <input class="btn btn-primary btn-lg" type="submit" value="{!! trans('cart.buyNow') !!}" />
+                </form>
+
                 <a href={{ route("cart.removeAll") }} class="btn btn-danger btn-lg" role="button" aria-pressed="true">{!! trans('cart.empty') !!}</a>
             </div>
             <table class="table">

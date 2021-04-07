@@ -55,7 +55,7 @@ class ItemController extends Controller
     }
 
 
-    public function delete($id)
+    public function delete(Request $request)
     {
         Item::validateId($request);
         Item::where('id',$request["id"])->delete();
