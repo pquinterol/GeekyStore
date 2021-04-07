@@ -47,15 +47,6 @@
                         <td>{{ $product->getDescription() }}</td>
                         <td><a class="btn btn-success" href="{{ route('product.show' , $product->getId()) }}">{!! trans('changePages.show') !!}</a></td>
                         <td><a class="btn btn-success" href="{{ route('cart.add', $product->getId()) }}">{!! trans('cart.add') !!}</a></td>
-                        @if (Auth::check())
-                            <td><form method="POST" action="{{ route('wishlist.save')}}">
-                                @csrf
-                                <input type="hidden" name="product" value="{{ $product->getId() }}">
-                                <input type="hidden" name="user" value="{{ Auth::user()->getId() }}">
-                                <input class="btn btn-success" type="submit" value="{!! trans('changePages.wishlist') !!}" /> 
-                            </form></td>
-                        @endif
-                        
                         <td>
                             <form action="{{ route('product.delete', ['id' => $product->getId()])}}" method="post">
                                 @csrf
@@ -68,6 +59,7 @@
                     @endforeach
                 </table>
                 <a class="btn btn-primary" href="{{route('home.index')}}">{!! trans('changePages.home') !!}</a>
+                <a class="btn btn-secondary" href="{{route('product.list', 'name')}}">{!! trans('changePages.back') !!}</a>
         </ul>
         
     </div>
