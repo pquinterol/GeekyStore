@@ -65,3 +65,6 @@ Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("c
 Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 Route::post('/cart/buyNow', 'App\Http\Controllers\CartController@buyNow')->name("cart.buyNow");
+
+//PDF
+Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.download");

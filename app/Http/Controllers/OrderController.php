@@ -4,6 +4,7 @@
  use Illuminate\Http\Request;
  use App\Models\Order;
  use Illuminate\Support\Facades\Auth;
+ use PDF;
 
  class OrderController extends Controller
  {
@@ -88,5 +89,15 @@
                             );
         }
         return view('order.list')->with("data",$data);
+    }
+
+    public function download()
+    {
+        $data = Order::all();
+
+        $pdf = PDF::loadView('order.download', compact('data'));  
+
+        return $pdf->download('Orders.pdf');
+      
     }
  }
