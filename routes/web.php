@@ -31,6 +31,9 @@ Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("o
 Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
 Route::get('/order/list/InProcess', 'App\Http\Controllers\OrderController@inProcess')->name("order.inProcess");
 Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')->name("order.list");
+//PDF
+Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.download");
+
 /* Routes Moli User */
 Route::get('/user/show/{id}', 'App\Http\Controllers\UserController@show')->name("user.show");
 Route::get('/user/create', 'App\Http\Controllers\UserController@create')->name("user.create");
