@@ -12,10 +12,15 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $data = array();
-        $ids = $request->session()->get("products");
-        $products = Product::whereIn('id', $ids)->get();
+        if ($request->session()->get("products")){
+            $ids = $request->session()->get("products");
+            $products = Product::whereIn('id', $ids)->get();
+
+            $data["products"] = $products;
+        }else{
+            $data["products"] = null;
+        }
         $data["title"] = "Cart";
-        $data["products"] = $products;
 
         return view("cart.index")->with("data", $data);
     }

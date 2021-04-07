@@ -7,5 +7,6 @@ return [
     'remove' => 'Remove',
     'empty' => 'Empty Cart',
     'buyNow' => 'Buy Now',
+    'carts'  => 'Cart',
 
 ];
