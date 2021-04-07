@@ -15,8 +15,10 @@ class CreateWishListsTable extends Migration
     {
         Schema::create('wishlists', function (Blueprint $table) {
             $table->bigIncrements('id');
-            #$table->text('products');
-            #$table->text('User[]');
+            $table->unsignedBigInteger('product')->nullable();
+            $table->foreign('product')->references('id')->on('products');
+            $table->unsignedBigInteger('user');
+            $table->foreign('user')->references('id')->on('users');
             $table->timestamps();
         });
     }
