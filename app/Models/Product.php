@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
-
 {
 
     use HasFactory;
@@ -142,7 +141,8 @@ class Product extends Model
 
     public static function validation($data)
     {
-        return  $data->validate([
+        return  $data->validate(
+            [
             "name" => "required",
             "price" => "required|numeric|gt:0",
             "discount" => "required|numeric",
@@ -150,20 +150,25 @@ class Product extends Model
             "manufacturer" => "required",
             "quantity" => "required|numeric",
             "description" => "required"
-        ]);
+            ]
+        );
     }
 
     public static function validateId($data)
     {
-        $data->validate([
+        $data->validate(
+            [
             "id" => "required",
-        ]);
+            ]
+        );
     }
 
     public static function validateName($data)
     {
-        $data->validate([
+        $data->validate(
+            [
             "name" => "required",
-        ]);
+            ]
+        );
     }
 }

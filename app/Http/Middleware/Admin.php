@@ -12,18 +12,19 @@ class Admin
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  string|null  ...$guards
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure                 $next
+     * @param  string|null              ...$guards
      * @return mixed
      */
     
 
-    public function handle($request, Closure $next) {
+    public function handle($request, Closure $next)
+    {
         if (Auth::user()->getType() == 'admin') {
-          return $next($request);
+            return $next($request);
         } else {
-          return redirect("/");
+            return redirect("/");
         }
     }
 }

@@ -12,13 +12,15 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            if(Auth::user()->getType()=="client"){
-                return redirect()->route('home.index');
-            }
+        $this->middleware(
+            function ($request, $next) {
+                if(Auth::user()->getType()=="client") {
+                    return redirect()->route('home.index');
+                }
     
-            return $next($request);
-        });
+                return $next($request);
+            }
+        );
     }
 
     public function index()

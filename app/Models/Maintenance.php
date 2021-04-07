@@ -22,7 +22,7 @@ class Maintenance extends Model
      * The attributes that should be hidden for arrays.
      *
      * @var array
-    */
+     */
     protected $hidden = [
     ];
 
@@ -88,8 +88,10 @@ class Maintenance extends Model
 
     public static function validateData($data)
     {
-        return  $data->validate([
+        return  $data->validate(
+            [
             "price" => "required|numeric|gt:0",
-        ]);
+            ]
+        );
     }
 }

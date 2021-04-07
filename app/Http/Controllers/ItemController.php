@@ -14,7 +14,7 @@ class ItemController extends Controller
         $data["title"] = $item->getId();
         $data["items"] = $item;
         
-        return view('item.show')->with("data",$data);
+        return view('item.show')->with("data", $data);
     }
 
     public function list()
@@ -23,7 +23,7 @@ class ItemController extends Controller
         $data["title"] = "Create product";
         $data["items"] = Item::all();
 
-        return view('item.list')->with("data",$data);
+        return view('item.list')->with("data", $data);
     }
 
     public function create()
@@ -32,7 +32,7 @@ class ItemController extends Controller
         $data["title"] = "Create product";
         $data["items"] = Item::all();
 
-        return view('item.create')->with("data",$data);
+        return view('item.create')->with("data", $data);
     }
     
 
@@ -41,8 +41,7 @@ class ItemController extends Controller
         $status = '';
         $message = '';
 
-        if(Item::validation($request))
-        {
+        if (Item::validation($request)) {
             Item::create($request->all());
             $status = 'success';
             $message = 'Item created successfully!!';
@@ -51,15 +50,15 @@ class ItemController extends Controller
             $message = 'Unable to create item';
         }
         
-        return back()->with($status,$message);
+        return back()->with($status, $message);
     }
 
 
     public function delete(Request $request)
     {
         Item::validateId($request);
-        Item::where('id',$request["id"])->delete();
+        Item::where('id', $request["id"])->delete();
 
-        return redirect()->route('item.list')->with('success','Item deleted successfully!!');
+        return redirect()->route('item.list')->with('success', 'Item deleted successfully!!');
     }
 }

@@ -12,13 +12,15 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            if(Auth::user()->getType()=="client"){
-                return redirect()->route('home.index');
-            }
+        $this->middleware(
+            function ($request, $next) {
+                if (Auth::user()->getType()=="client") {
+                    return redirect()->route('home.index');
+                }
     
-            return $next($request);
-        });
+                return $next($request);
+            }
+        );
     }
 
     public function show($id)
@@ -27,30 +29,35 @@ class UserController extends Controller
         {
             $user = User::findOrFail($id);
         }
-        catch(ModelNotFoundException $e)
+        catch (ModelNotFoundException $e)
         {
             return redirect('user.list');
         }
 
-        return view('user.show')->with("data",$user);
+        return view('user.show')->with("data", $user);
         
     }
 
     public function list()
     {
-        $data = []; //to be sent to the view
+        $data = [];
         $data["title"] = "Display users";
         $data["users"] = User::orderBy('id')->get();
 
-        return view('user.list')->with("data",$data);
+        return view('user.list')->with("data", $data);
     }
 
     public function delete(Request $request)
     {
-        $request->validate([
+        $request->validate(
+            [
             "id" => "required",
-        ]);
-        User::where('id',$request["id"])->delete();
-        return redirect('user.list');
+            ]
+        );
+        $user = User::findOrFail($request["id"]);
+        $user->orders()->delete();
+        $user->maintenances()->delete();
+        $user->delete();
+        return redirect()->route('user.list', 'name');
     } 
 }

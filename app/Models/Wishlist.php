@@ -44,11 +44,13 @@ class Wishlist extends Model
 
     public static function validation($data)
     {
-        return  $data->validate([
+        return  $data->validate(
+            [
         
             "product" => "required|numeric",
             "user" => "required|numeric",
-        ]);
+            ]
+        );
     }
 
 }

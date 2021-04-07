@@ -12,12 +12,12 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $data = array();
-        if ($request->session()->get("products")){
+        if ($request->session()->get("products")) {
             $ids = $request->session()->get("products");
             $products = Product::whereIn('id', $ids)->get();
 
             $data["products"] = $products;
-        }else{
+        }else {
             $data["products"] = null;
         }
         $data["title"] = "Cart";
@@ -58,32 +58,36 @@ class CartController extends Controller
         $products = Product::whereIn('id', $ids)->get();
         $total = 0;
         try{
-            foreach($products as $product)
+            foreach ($products as $product)
             {
                 $total = $total + $product->getPrice();
             }
-            $order = Order::create([
+            $order = Order::create(
+                [
                 'user'  => $request['user'],
                 'price' =>  $total
-            ]);
+                ]
+            );
 
-            foreach($products as $product)
+            foreach ($products as $product)
             {   
                 
 
-                Item::create([
-                'quantity'  => '1',
-                'subtotal' => $product->getPrice(),
-                'product'  => $product->getId(),
-                'order'  => $order->getId()
-                ]);
+                Item::create(
+                    [
+                    'quantity'  => '1',
+                    'subtotal' => $product->getPrice(),
+                    'product'  => $product->getId(),
+                    'order'  => $order->getId()
+                    ]
+                );
             }
 
             $request->session()->forget('products');
             $status = 'success';
             $message = 'Order created successfully!!';
             
-        }catch(Exception $e){
+        }catch (Exception $e){
             $status = 'error';
             $message = 'Unable to create order';
         }   
@@ -91,7 +95,7 @@ class CartController extends Controller
         
         
 
-        return redirect()->route('order.list', 'created_at')->with($status,$message);
+        return redirect()->route('order.list', 'created_at')->with($status, $message);
     }
 
 }
