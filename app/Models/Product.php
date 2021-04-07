@@ -130,4 +130,11 @@ class Product extends Model
             "id" => "required",
         ]);
     }
+
+    public static function validateName($data)
+    {
+        $data->validate([
+            "name" => "required",
+        ]);
+    }
 }

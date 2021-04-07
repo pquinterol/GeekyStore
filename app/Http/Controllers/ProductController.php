@@ -40,6 +40,18 @@ class ProductController extends Controller
 
         return view('product.list')->with("data",$data);
     }
+
+    public function search(Request $request)
+    {   
+        Product::validateName($request);
+        $product = $request->get('name');
+        $query = Product::where('name', 'LIKE','%' . $product . '%')->get();
+        $data = []; 
+        $data["title"] = "List products";
+        $data["products"] = $query;
+
+        return view('product.search')->with("data",$data);
+    }
    
     public function listDiscountOnly()
     {
