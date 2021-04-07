@@ -97,6 +97,4 @@ class WishListController extends Controller
         $wishList->products()->detach();
         return back()->with('success',trans('wishlist.emptied'));
     }
-
-    #MissingFunctions
 }
