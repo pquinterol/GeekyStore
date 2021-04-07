@@ -7,4 +7,5 @@ return [
     'delete'  => 'Delete',
     'send'  => 'Send',
     'download'  => 'Download',
+    'wishlist'  => 'Add to wishlist',
 ];
