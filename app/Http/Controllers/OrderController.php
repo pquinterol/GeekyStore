@@ -93,8 +93,13 @@
 
     public function download()
     {
-        $data = Order::all();
-
+        if(Auth::user()->getType() == 'admin')
+        {
+            $data = Order::all();
+        }
+        else {
+            $data = Order::where('user', '=', Auth::user()->getID())->get();
+        }
         $pdf = PDF::loadView('order.download', compact('data'));  
 
         return $pdf->download('Orders.pdf');

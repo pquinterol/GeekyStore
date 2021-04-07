@@ -28,6 +28,8 @@ class CreateProductsTable extends Migration
             $table->double('price');
             $table->float('discount');
             $table->text('category');
+            $table->float('rating')->default(0);
+            $table->unsignedBigInteger('rates')->default(0);
             $table->text('manufacturer');
             $table->integer('quantity');
             $table->text('description');

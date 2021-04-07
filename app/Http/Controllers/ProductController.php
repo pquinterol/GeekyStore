@@ -14,7 +14,7 @@ class ProductController extends Controller
             'show', 'listBy'
         ]]);
         $this->middleware('admin', ['except' => [
-            'show', 'listBy'
+            'show', 'listBy', 'rate'
         ]]);
     }
     
@@ -95,5 +95,23 @@ class ProductController extends Controller
         Product::where('id',$request["id"])->delete();
 
         return redirect()->route('product.list')->with('success','Product deleted successfully!!');
+    }
+
+    public function rate($productId, $rating)
+    {
+        try
+        {
+            $product = Product::findOrFail($productId);
+            $newRating = $product->calcRating($rating);
+            $product->setRating($newRating);
+            $product->setRates($product->getRates()+1);
+            $product->save();
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return redirect('product.list', 'name');
+        }
+
+        return back()->with('data', $product);
     }
 }

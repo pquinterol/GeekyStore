@@ -33,4 +33,7 @@ return [
     'pManufacturer'  => 'Marca del Producto',
     'pQuantity'  => 'Cantidad del Producto',
     'pDescription'  => 'Descripcion del Producto',
+    'pRate' => 'Calificar Producto',
+    'pRatings' => 'Calificacion',
+    'pRates' => 'Calificaciones',
 ];

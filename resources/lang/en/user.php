@@ -3,6 +3,7 @@
 return [
     /*Admin*/
     'admin'  => 'Administrator',
+    'adminDashboard' => 'Admin Dashboard',
     'showUser'  => 'Show Users',
     'createProduct'  => 'Create Product',
 

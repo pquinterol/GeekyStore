@@ -25,7 +25,12 @@
         @if (Auth::check())
             <div class="col-md-6 col-lg-4 mb-5">
                 <a href="{{ route('wishlist.show', Auth::user()->getId()) }}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('wishlist.yours') !!}</a>
-            </div>  
+            </div>
+            @if (Auth::user()->getType() == 'admin')
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <a href="{{ route('admin.home.index') }}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('user.adminDashboard') !!}</a>
+                </div>
+            @endif 
         @endif
         
         
