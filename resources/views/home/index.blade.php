@@ -14,11 +14,16 @@
         </div>
         <!-- Portfolio Grid Items-->
         <div class="col-md-6 col-lg-4 mb-5">
-            <a href="product/list/name" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.products') !!}</a>
+        <a href="{{ route('product.list', 'name') }}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.products') !!}</a>
         </div>
         <div class="col-md-6 col-lg-4 mb-5">
-            <a href="order/list/created_at" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.orders') !!}</a>
+        <a href="{{ route('order.list', 'created_at') }}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.orders') !!}</a>
         </div>
+        @if (Auth::check())
+            <div class="col-md-6 col-lg-4 mb-5">
+                <a href="{{ route('wishlist.show', Auth::user()->getId()) }}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('wishlist.yours') !!}</a>
+            </div>  
+        @endif
         
         
         <div class="row">

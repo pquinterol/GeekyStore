@@ -6,4 +6,5 @@ return [
     'show'  => 'View',
     'delete'  => 'Delete',
     'send'  => 'Send',
+    'wishlist'  => 'Add to wishlist',
 ];

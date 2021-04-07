@@ -31,7 +31,7 @@ Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("o
 Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
 Route::get('/order/list/InProcess', 'App\Http\Controllers\OrderController@inProcess')->name("order.inProcess");
 Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')->name("order.list");
-/* Routes Moli User - Wishlist */
+/* Routes Moli User */
 Route::get('/user/show/{id}', 'App\Http\Controllers\UserController@show')->name("user.show");
 Route::get('/user/create', 'App\Http\Controllers\UserController@create')->name("user.create");
 Route::get('/user/list', 'App\Http\Controllers\UserController@list')->name("user.list");
@@ -64,3 +64,9 @@ Route::get('/cart/index', 'App\Http\Controllers\CartController@index')->name("ca
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
 Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+/*Wishlist Routes*/
+Route::get('/wishlist/show/{userId}', 'App\Http\Controllers\WishListController@show')->name("wishlist.show");
+Route::post('/wishlist/save', 'App\Http\Controllers\WishListController@save')->name("wishlist.save");
+Route::get('/wishlist/list', 'App\Http\Controllers\WishListController@list')->name("wishlist.list");
+Route::get('/wishlist/removeAll/{userId}', 'App\Http\Controllers\WishListController@removeAll')->name("wishlist.removeAll");
+Route::get('/wishlist/remove/{userId}/{productId}', 'App\Http\Controllers\WishListController@remove')->name("wishlist.remove");
