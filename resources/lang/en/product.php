@@ -33,4 +33,7 @@ return [
     'pManufacturer'  => 'Product Manufacturer',
     'pQuantity'  => 'Product Quantity',
     'pDescription'  => 'Product Description',
+    'pRate' => 'Rate Product',
+    'pRatings' => 'Ratings',
+    'pRates' => 'Rates',
 ];

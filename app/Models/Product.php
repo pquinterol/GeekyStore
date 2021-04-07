@@ -21,6 +21,15 @@ class Product extends Model
         'description'
     ];
 
+    public function calcRating($rating)
+    {
+        $currentRates = $this->getRates();
+        $currentRating = $this->getRating();
+        $newRating = ($currentRating*$currentRates + $rating)/($currentRates+1);
+
+        return $newRating;
+    }
+
     public function getId()
     {
         return $this->attributes['id'];
@@ -69,6 +78,26 @@ class Product extends Model
     public function setCategory($category)
     {
         $this->attributes['category'] = $category;
+    }
+
+    public function getRating()
+    {
+        return $this->attributes['rating'];
+    }
+
+    public function setRating($rating)
+    {
+        $this->attributes['rating'] = $rating;
+    }
+
+    public function getRates()
+    {
+        return $this->attributes['rates'];
+    }
+
+    public function setRates($rates)
+    {
+        $this->attributes['rates'] = $rates;
     }
 
     public function getManufacturer()
