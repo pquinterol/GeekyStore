@@ -9,9 +9,17 @@
     <div class="col-md-12">
         @include('util.message')
         <ul id="errors">
+            <h1>{!! trans('cart.carts') !!}</h1>
             <div class="row justify-content-center">
-                <a href={{ route("cart.index") }} class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('cart.buyNow') !!}</a>
-                <a href={{ route("cart.removeAll") }} class="btn btn-danger btn-lg" role="button" aria-pressed="true">{!! trans('cart.empty') !!}</a>
+            @if ($data["products"] != null)
+            <form method="POST" action="{{ route('cart.buyNow') }}">
+                    @csrf
+                        <input type="hidden" name="user" value="{{ Auth::user()->getId() }}" />
+                    
+                    <input class="btn btn-primary btn-lg" type="submit" value="{!! trans('cart.buyNow') !!}" />
+            </form>
+            <a href={{ route("cart.removeAll") }} class="btn btn-danger btn-lg" role="button" aria-pressed="true">{!! trans('cart.empty') !!}</a>
+            @endif
             </div>
             <table class="table">
                     <thead>
@@ -26,6 +34,7 @@
                             <th scope="col">{!! trans('product.viewDescription') !!}</th>
                             </tr>
                     </thead>
+                    @if ($data["products"] != null)
                     @foreach($data["products"] as $product)
                     <tbody>
                         <tr>
@@ -43,6 +52,7 @@
                         </tr>
                     </tbody>
                     @endforeach
+                    @endif
                 </table>
 
         </ul>

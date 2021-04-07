@@ -14,10 +14,13 @@
         </div>
         <!-- Portfolio Grid Items-->
         <div class="col-md-6 col-lg-4 mb-5">
-        <a href="{{ route('product.list', 'name') }}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.products') !!}</a>
+            <a href="{{route('product.list', 'name')}}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.products') !!}</a>
         </div>
         <div class="col-md-6 col-lg-4 mb-5">
-        <a href="{{ route('order.list', 'created_at') }}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.orders') !!}</a>
+            <a href="{{route('order.list', 'created_at')}}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.orders') !!}</a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-5">
+            <a href="{{route('cart.index')}}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.cart') !!}</a>
         </div>
         @if (Auth::check())
             <div class="col-md-6 col-lg-4 mb-5">

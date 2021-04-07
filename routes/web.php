@@ -64,6 +64,8 @@ Route::get('/cart/index', 'App\Http\Controllers\CartController@index')->name("ca
 Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
 Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+Route::post('/cart/buyNow', 'App\Http\Controllers\CartController@buyNow')->name("cart.buyNow");
+
 /*Wishlist Routes*/
 Route::get('/wishlist/show/{userId}', 'App\Http\Controllers\WishListController@show')->name("wishlist.show");
 Route::post('/wishlist/save', 'App\Http\Controllers\WishListController@save')->name("wishlist.save");

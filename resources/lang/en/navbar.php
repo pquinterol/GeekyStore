@@ -23,4 +23,5 @@ return [
     'about'  => 'About Freelancer',
     'products' => 'List Products',
     'orders' => 'List Orders',
+    'cart' => 'Cart',
 ];
