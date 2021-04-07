@@ -116,4 +116,14 @@ class User extends Authenticatable
     {
         return $this->orders;
     }
+
+    public function wishlist()
+    {
+        return $this->hasOne(Wishlist::class, 'user');
+    }
+
+    public function getWishList()
+    {
+        return $this->wishlist;
+    }
 }

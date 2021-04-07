@@ -31,7 +31,10 @@ Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("o
 Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
 Route::get('/order/list/InProcess', 'App\Http\Controllers\OrderController@inProcess')->name("order.inProcess");
 Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')->name("order.list");
-/* Routes Moli User - Wishlist */
+//PDF
+Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.download");
+
+/* Routes Moli User */
 Route::get('/user/show/{id}', 'App\Http\Controllers\UserController@show')->name("user.show");
 Route::get('/user/create', 'App\Http\Controllers\UserController@create')->name("user.create");
 Route::get('/user/list', 'App\Http\Controllers\UserController@list')->name("user.list");
@@ -67,5 +70,9 @@ Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->n
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 Route::post('/cart/buyNow', 'App\Http\Controllers\CartController@buyNow')->name("cart.buyNow");
 
-//PDF
-Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.buyNow");
+/*Wishlist Routes*/
+Route::get('/wishlist/show/{userId}', 'App\Http\Controllers\WishListController@show')->name("wishlist.show");
+Route::post('/wishlist/save', 'App\Http\Controllers\WishListController@save')->name("wishlist.save");
+Route::get('/wishlist/list', 'App\Http\Controllers\WishListController@list')->name("wishlist.list");
+Route::get('/wishlist/removeAll/{userId}', 'App\Http\Controllers\WishListController@removeAll')->name("wishlist.removeAll");
+Route::get('/wishlist/remove/{userId}/{productId}', 'App\Http\Controllers\WishListController@remove')->name("wishlist.remove");

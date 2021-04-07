@@ -22,6 +22,11 @@
         <div class="col-md-6 col-lg-4 mb-5">
             <a href="{{route('cart.index')}}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.cart') !!}</a>
         </div>
+        @if (Auth::check())
+            <div class="col-md-6 col-lg-4 mb-5">
+                <a href="{{ route('wishlist.show', Auth::user()->getId()) }}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('wishlist.yours') !!}</a>
+            </div>  
+        @endif
         
         
         <div class="row">

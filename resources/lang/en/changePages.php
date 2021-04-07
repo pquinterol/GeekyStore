@@ -9,4 +9,5 @@ return [
     'download'  => 'Download',
     'search'  => 'Search',
     'searchName'  => 'Search Name',
+    'wishlist'  => 'Add to wishlist',
 ];

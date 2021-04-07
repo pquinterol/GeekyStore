@@ -101,6 +101,16 @@ class Product extends Model
         $this->attributes['description'] = $description;
     }
 
+    public function wishlists()
+    {
+        return $this->belongsToMany(Wishlist::class, 'product_wishlist');
+    }
+
+    public function getWishlist()
+    {
+        return $this->wishlists;
+    }
+
     public static function validation($data)
     {
         return  $data->validate([
