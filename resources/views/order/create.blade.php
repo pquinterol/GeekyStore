@@ -9,7 +9,7 @@
         <div class="col-md-8">
         @include('util.message')
             <div class="card">
-                <div class="card-header">Create Order</div>
+                <div class="card-header"><h2>{!! trans('order.createOrder') !!}</h2></div>
                 <div class="card-body">
                 @if($errors->any())
                 <ul id="errors">
@@ -20,8 +20,9 @@
                 @endif
                 <form method="POST" action="{{ route('order.save') }}">
                     @csrf
-                    <input type="text" placeholder="Enter Total Price" name="totalPrice" value="{{ old('totalPrice') }}" />
-                    <input type="submit" value="Send" />
+                    <input type="hidden" placeholder="" name="user" value="{{ Auth::user()->getId() }}" />
+                    <input type="text" placeholder="{!! trans('order.totalPrice') !!}" name="price" value="{{ old('price') }}" />
+                    <input type="submit" value="{!! trans('order.send') !!}" />
                 </form>
                 </div>
             </div>

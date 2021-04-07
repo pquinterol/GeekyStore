@@ -14,7 +14,12 @@ class Order extends Model
      *
      * @var array
      */
-    protected $fillable = ['status','price', 'created_at'];
+    protected $fillable = [
+        'status',
+        'user',
+        'price',
+        'created_at'
+    ];
 
     public function getId()
     {
@@ -49,5 +54,29 @@ class Order extends Model
     public function getDate()
     {
         return $this->attributes['created_at'];
+    }
+
+    public function setDate($date)
+    {
+        $this->attributes['created_at'] = $date;
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'foreign_key');
+    }
+
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    public static function validateData($data)
+    {
+        return $data->validate(
+            [
+            "price" => "required|numeric|gt:0",
+            ]
+        );
     }
 }

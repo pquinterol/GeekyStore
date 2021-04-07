@@ -82,7 +82,7 @@ class User extends Authenticatable
         return $this->attributes['username'];
     }
 
-    public function setUsernamae($username)
+    public function setUsername($username)
     {
         $this->attributes['username'] = $username;
     }
@@ -95,5 +95,35 @@ class User extends Authenticatable
     public function setPassword($password)
     {
         $this->attributes['password'] = $password;
+    }
+
+    public function maintenances()
+    {
+        return $this->hasMany(Maintenance::class, 'user');
+    }
+
+    public function getMaintenances()
+    {
+        return $this->maintenances;
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user');
+    }
+
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    public function wishlist()
+    {
+        return $this->hasOne(Wishlist::class, 'user');
+    }
+
+    public function getWishList()
+    {
+        return $this->wishlist;
     }
 }
