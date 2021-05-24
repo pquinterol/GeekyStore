@@ -46,6 +46,7 @@ Route::get('/product/create', 'App\Http\Controllers\ProductController@create')->
 Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
 Route::get('/product/list/discountOnly', 'App\Http\Controllers\ProductController@listDiscountOnly')->name("product.discountOnly");
 Route::get('/product/list/{param}', 'App\Http\Controllers\ProductController@listBy')->name("product.list");
+Route::get('/admin/product/list/{param}', 'App\Http\Controllers\ProductController@adminListBy')->name("product.listAdmin");
 Route::delete('/product/delete', 'App\Http\Controllers\ProductController@delete')->name("product.delete");
 Route::get('/product/rate/{productId}/{rating}', 'App\Http\Controllers\ProductController@rate')->name("product.rate");
 Route::get('/product/search', 'App\Http\Controllers\ProductController@search')->name("product.search");

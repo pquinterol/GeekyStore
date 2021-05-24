@@ -6,6 +6,7 @@ return [
     'adminDashboard' => 'Admin Dashboard',
     'showUser'  => 'Show Users',
     'createProduct'  => 'Create Product',
+    'listProduct' => 'List Products',
 
     /*Display Users*/
     'display'  => 'User List',

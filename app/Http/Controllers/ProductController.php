@@ -45,6 +45,15 @@ class ProductController extends Controller
         return view('product.list')->with("data", $data);
     }
 
+    public function adminListBy($request)
+    {
+        $data = []; 
+        $data["title"] = "List products";
+        $data["products"] = Product::orderBy($request)->get();
+
+        return view('product.listAdmin')->with("data", $data);
+    }
+
     public function search(Request $request)
     {   
         Product::validateName($request);
@@ -97,7 +106,7 @@ class ProductController extends Controller
         Product::validateId($request);
         Product::where('id', $request["id"])->delete();
 
-        return redirect()->route('product.list')->with('success', 'Product deleted successfully!!');
+        return redirect()->route('product.listAdmin','name')->with('success', 'Product deleted successfully!!');
     }
 
     public function rate($productId, $rating)
