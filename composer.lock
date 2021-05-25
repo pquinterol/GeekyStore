@@ -4,9 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-  
-    "content-hash": "a833f97966e90a9fb4a760af1c4c734f",
-  
+    "content-hash": "46b26ad01e8a41ae671797ac6f8b25b5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1162,9 +1160,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-
             "time": "2021-05-25T13:06:44+00:00"
-          
         },
         {
             "name": "laravel/tinker",
@@ -5780,7 +5776,6 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-          
             "time": "2021-05-25T16:41:13+00:00"
         },
         {

@@ -12,4 +12,11 @@ return [
     /*Show Item*/
     'id'  => 'Id',
 
+    //Save Item//
+    'failCreate' => 'Error al crear item',
+    'succssCreate' => 'Item creado correctamente!!',
+
+    //Delete Item//
+    'delete' => 'Item eliminado correctamente!',
+
 ];

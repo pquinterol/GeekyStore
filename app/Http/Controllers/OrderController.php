@@ -23,7 +23,7 @@ class OrderController extends Controller
     public function create()
     {
         $data = [];
-        $data['title'] = "Create Order";    //WARNING!!!     THIS MIGHT BE IMPLEMENTED USING LANG
+        $data['title'] = trans('order.createOrder');    //WARNING!!!     THIS MIGHT BE IMPLEMENTED USING LANG
         return view('order.create')->with("data", $data);
     }
 
@@ -97,7 +97,7 @@ class OrderController extends Controller
     public function listBy($param = 'created_at')
     {
         $data = []; 
-        $data["title"] = "List Orders";
+        $data["title"] = trans('order.list');
         if(Auth::user()->getType() == "admin") {
             $data["orders"] = Order::orderBy($param, 'desc')->get();
         }
@@ -112,7 +112,7 @@ class OrderController extends Controller
     public function inProcess()
     {
         $data = []; 
-        $data["title"] = "List discount Orders";
+        $data["title"] = trans('order.discount');
         if(Auth::user()->getType() == "admin") {
             $data["orders"] = Order::where('status', 'In Process')->get();
         }

@@ -44,10 +44,10 @@ class ItemController extends Controller
         if (Item::validation($request)) {
             Item::create($request->all());
             $status = 'success';
-            $message = 'Item created successfully!!';
+            $message = trans('item.succssCreate');
         } else {
             $status = 'error';
-            $message = 'Unable to create item';
+            $message = trans('item.failCreate');
         }
         
         return back()->with($status, $message);
@@ -58,6 +58,6 @@ class ItemController extends Controller
         Item::validateId($request);
         Item::where('id', $request["id"])->delete();
 
-        return redirect()->route('item.list')->with('success', 'Item deleted successfully!!');
+        return redirect()->route('item.list')->with('success', trans('item.delete'));
     }
 }
