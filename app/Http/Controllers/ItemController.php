@@ -53,7 +53,6 @@ class ItemController extends Controller
         return back()->with($status, $message);
     }
 
-
     public function delete(Request $request)
     {
         Item::validateId($request);
