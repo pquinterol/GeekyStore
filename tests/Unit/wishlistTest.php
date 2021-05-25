@@ -15,12 +15,4 @@ class wishlistTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $wishlist->products);
     }
-
-    public function test_a_belongs_to_user()
-    {
-        $wishlist = new Wishlist;
-
-        //$this->assertInstanceOf(User::class, $wishlist->user);
-        $this->assertEquals(1, $wishlist->user->count());
-    }
 }

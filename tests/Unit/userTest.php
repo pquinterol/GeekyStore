@@ -22,11 +22,4 @@ class userTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $user->maintenances);
     }
-
-    public function test_a_has_one_wishlist()
-    {
-        $user = new User;
-
-        $this->assertInstanceOf(User::class, $user->wishlist); 
-    }
 }
