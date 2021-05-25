@@ -106,7 +106,7 @@ class ProductController extends Controller
         Product::validateId($request);
         Product::where('id', $request["id"])->delete();
 
-        return redirect()->route('product.listAdmin','name')->with('success', 'Product deleted successfully!!');
+        return redirect()->route('product.listAdmin', 'name')->with('success', 'Product deleted successfully!!');
     }
 
     public function rate($productId, $rating)

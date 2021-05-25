@@ -15,8 +15,10 @@ class PaymentServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(PaymentMethod::class, function () {
-            return new PayPalPayment();
-        });
+        $this->app->bind(
+            PaymentMethod::class, function () {
+                return new PayPalPayment();
+            }
+        );
     }
 }
