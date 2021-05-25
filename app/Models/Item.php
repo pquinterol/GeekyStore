@@ -42,35 +42,34 @@ class Item extends Model
         $this->attributes['subtotal'] = $subtotal;
     }
 
-    public function getProduct()
+    public function product()
     {
-        return $this->attributes['product'];
+        return $this->belongsTo(Product::class, 'foreign_key');
     }
 
-    public function setProduct($product)
+    public function getProduct()
     {
-        $this->attributes['product'] = $product;
+        return $this->product;
+    }
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'foreign_key');
     }
 
     public function getOrder()
     {
-        return $this->attributes['product'];
-    }
-
-    public function setOrder($product)
-    {
-        $this->attributes['product'] = $product;
+        return $this->product;
     }
 
     public static function validation($data)
     {
         return  $data->validate(
             [
-        
-            "quantity" => "required|numeric",
-            "subtotal" => "required|numeric|gt:0",
-            "product" => "required|numeric|gt:0",
-            "order" => "required|numeric|gt:0"
+                "quantity" => "required|numeric",
+                "subtotal" => "required|numeric|gt:0",
+                "product" => "required|numeric|gt:0",
+                "order" => "required|numeric|gt:0"
             ]
         );
     }
@@ -79,7 +78,7 @@ class Item extends Model
     {
         $data->validate(
             [
-            "id" => "required",
+                "id" => "required",
             ]
         );
     }

@@ -12,9 +12,10 @@
             <h1>{!! trans('cart.carts') !!}</h1>
             <div class="row justify-content-center">
             @if ($data["products"] != null)
-            <form method="POST" action="{{ route('cart.buyNow') }}">
+            <form method="POST" action="{{ route('order.pay') }}">
                     @csrf
                         <input type="hidden" name="user" value="{{ Auth::user()->getId() }}" />
+                        <input type="hidden" name="currency" value="{{ 'USD' }}" />
                     
                     <input class="btn btn-primary btn-lg" type="submit" value="{!! trans('cart.buyNow') !!}" />
             </form>

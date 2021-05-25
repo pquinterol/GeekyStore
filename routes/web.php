@@ -31,6 +31,9 @@ Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("o
 Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
 Route::get('/order/list/InProcess', 'App\Http\Controllers\OrderController@inProcess')->name("order.inProcess");
 Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')->name("order.list");
+Route::post('/order/pay', 'App\Http\Controllers\OrderController@pay')->name('order.pay');
+Route::get('/order/payment', 'App\Http\Controllers\OrderController@getPaymentStatus')->name('order.payment');
+
 //PDF
 Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.download");
 
@@ -77,3 +80,7 @@ Route::post('/wishlist/save', 'App\Http\Controllers\WishListController@save')->n
 Route::get('/wishlist/list', 'App\Http\Controllers\WishListController@list')->name("wishlist.list");
 Route::get('/wishlist/removeAll/{userId}', 'App\Http\Controllers\WishListController@removeAll')->name("wishlist.removeAll");
 Route::get('/wishlist/remove/{userId}/{productId}', 'App\Http\Controllers\WishListController@remove')->name("wishlist.remove");
+
+//Payment Routes by Pedro
+Route::get('/payment/status', 'App\Http\Controllers\PaymentController@getStatus')->name('payment.status');
+

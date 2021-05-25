@@ -15,7 +15,6 @@ class Order extends Model
      * @var array
      */
     protected $fillable = [
-        'status',
         'user',
         'price',
         'created_at'
@@ -38,7 +37,7 @@ class Order extends Model
 
     public function setStatus($status)
     {
-        $this->attributes['status']->$status;
+        $this->attributes['status'] = $status;
     }
 
     public function getPrice()
@@ -69,6 +68,11 @@ class Order extends Model
     public function getUser()
     {
         return $this->user;
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class, 'order');
     }
 
     public static function validateData($data)
