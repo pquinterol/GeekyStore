@@ -13,7 +13,7 @@
             <div>
             <a href="{{ route('order.inProcess')}}" class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('order.orderProcess') !!}</a>
             </div>
-            <table class="table">
+            <table class="table" id="table">
                     <thead>
                         <tr>
                         <th scope="col">{!! trans('order.id') !!}</th>
@@ -42,10 +42,25 @@
                     @endforeach
                 </table>
                 <a class="btn btn-primary" href="{{route('home.index')}}">{!! trans('changePages.home') !!}</a>
-                <a class="btn btn-info" href="{{route('order.download')}}">{!! trans('changePages.download') !!}</a>
+                <a class="btn btn-danger" href="{{route('order.download')}}">{!! trans('changePages.download') !!}</a>
+                <button class="btn btn-success" onclick="descargarExcel()">{!! trans('changePages.downloadE') !!}</button>
         </ul>
 
     </div>
+
+    <script>
+        function descargarExcel(){
+        var tmpElemento = document.createElement('a');
+        var data_type = 'data:application/vnd.ms-excel';
+        var tabla_div = document.getElementById('table');
+        var tabla_html = tabla_div.outerHTML.replace(/ /g, '%20');
+        tmpElemento.href = data_type + ', ' + tabla_html ;
+        tmpElemento.download = 'Orders.xls';
+
+        tmpElemento.click();
+        }
+        
+    </script>
 
 </div>
 @endsection

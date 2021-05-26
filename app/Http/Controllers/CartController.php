@@ -92,9 +92,6 @@ class CartController extends Controller
             $message = 'Unable to create order';
         }   
         
-        
-        
-
         return redirect()->route('order.list', 'created_at')->with($status, $message);
     }
 
