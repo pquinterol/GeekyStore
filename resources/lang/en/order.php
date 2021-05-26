@@ -2,7 +2,7 @@
 
 return [
     /*Create Orders*/
-    'createOrder'  => 'Create Order',
+    'create'  => 'Create Order',
     'totalPrice'  => 'Enter Total Price',
 
     /*List Orders*/
@@ -12,6 +12,7 @@ return [
     'status'  => 'Status',
     'price'  => 'Price',
     'date'  => 'Date',
+    'discount' => "List discount Orders",
 
     /*Show Orders*/
     'tprice'  => 'Total Price',

@@ -22,6 +22,9 @@
         <div class="col-md-6 col-lg-4 mb-5">
             <a href="{{route('cart.index')}}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.cart') !!}</a>
         </div>
+        <div class="col-md-6 col-lg-4 mb-5">
+            <a href="{{route('api.get')}}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('navbar.api') !!}</a>
+        </div>
         @if (Auth::check())
             <div class="col-md-6 col-lg-4 mb-5">
                 <a href="{{ route('wishlist.show', Auth::user()->getId()) }}" class="btn btn-primary btn-lg portfolio-item mx-auto" role="button" aria-pressed="true">{!! trans('wishlist.yours') !!}</a>

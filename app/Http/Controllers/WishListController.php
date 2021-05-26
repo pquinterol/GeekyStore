@@ -66,7 +66,6 @@ class WishListController extends Controller
             );
             $productId = $request->product;
             $ids = $wishList->products()->pluck('id');
-            echo $ids;
             if (!$ids->contains($productId)) {
                 $wishList->products()->attach($productId);
                 $status = 'success';

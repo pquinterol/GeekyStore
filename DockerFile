@@ -1,0 +1,19 @@
+FROM php:7.4-apache
+RUN apt-get update -y && apt-get install -y openssl zip unzip git 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+COPY . /var/www/html
+WORKDIR /var/www/html
+RUN composer install \
+    --ignore-platform-reqs \
+    --no-interaction \
+    --no-plugins \
+    --no-scripts \
+    --prefer-dist
+
+COPY ./vendor_backup/AuthorizationCache.php ./vendor/paypal/rest-api-sdk-php/lib/PayPal/Cache/AuthorizationCache.php
+COPY ./vendor_backup/PayPalHttpConfig.php ./vendor/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalHttpConfig.php
+COPY ./vendor_backup/PayPalRestCall.php ./vendor/paypal/rest-api-sdk-php/lib/PayPal/Transport/PayPalRestCall.php
+
+RUN a2enmod rewrite
+RUN chmod -R 777 /var/www
+RUN service apache2 restart

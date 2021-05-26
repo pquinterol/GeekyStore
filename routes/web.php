@@ -31,6 +31,9 @@ Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("o
 Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
 Route::get('/order/list/InProcess', 'App\Http\Controllers\OrderController@inProcess')->name("order.inProcess");
 Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')->name("order.list");
+Route::post('/order/pay', 'App\Http\Controllers\OrderController@pay')->name('order.pay');
+Route::get('/order/payment', 'App\Http\Controllers\OrderController@getPaymentStatus')->name('order.payment');
+
 //PDF
 Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.download");
 
@@ -46,6 +49,7 @@ Route::get('/product/create', 'App\Http\Controllers\ProductController@create')->
 Route::post('/product/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
 Route::get('/product/list/discountOnly', 'App\Http\Controllers\ProductController@listDiscountOnly')->name("product.discountOnly");
 Route::get('/product/list/{param}', 'App\Http\Controllers\ProductController@listBy')->name("product.list");
+Route::get('/admin/product/list/{param}', 'App\Http\Controllers\ProductController@adminListBy')->name("product.listAdmin");
 Route::delete('/product/delete', 'App\Http\Controllers\ProductController@delete')->name("product.delete");
 Route::get('/product/rate/{productId}/{rating}', 'App\Http\Controllers\ProductController@rate')->name("product.rate");
 Route::get('/product/search', 'App\Http\Controllers\ProductController@search')->name("product.search");
@@ -77,3 +81,10 @@ Route::post('/wishlist/save', 'App\Http\Controllers\WishListController@save')->n
 Route::get('/wishlist/list', 'App\Http\Controllers\WishListController@list')->name("wishlist.list");
 Route::get('/wishlist/removeAll/{userId}', 'App\Http\Controllers\WishListController@removeAll')->name("wishlist.removeAll");
 Route::get('/wishlist/remove/{userId}/{productId}', 'App\Http\Controllers\WishListController@remove')->name("wishlist.remove");
+
+/*API Routes*/
+Route::get('/api/discounts', 'App\Http\Controllers\APIController@getDiscounts')->name("api.discounts");
+
+/* Get Api */
+Route::get('api/getApi', 'App\Http\Controllers\Api\getApi@index')->name('api.get');
+

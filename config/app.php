@@ -176,6 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
 
+        // My Providers//
+        App\Providers\PaymentServiceProvider::class,
+
     ],
 
     /*

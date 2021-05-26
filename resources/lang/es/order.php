@@ -2,7 +2,7 @@
 
 return [
     /*Create Orders*/
-    'createOrder'  => 'Crear Orden',
+    'create'  => 'Crear Orden',
     'totalPrice'  => 'Ingrese el Precio Total',
     
 
@@ -13,6 +13,7 @@ return [
     'status'  => 'Estado',
     'price'  => 'Precio',
     'date'  => 'Fecha',
+    'discount' => "Ordenes con Descuento",
     
 
     /*Show Orders*/
