@@ -82,5 +82,9 @@ Route::get('/wishlist/list', 'App\Http\Controllers\WishListController@list')->na
 Route::get('/wishlist/removeAll/{userId}', 'App\Http\Controllers\WishListController@removeAll')->name("wishlist.removeAll");
 Route::get('/wishlist/remove/{userId}/{productId}', 'App\Http\Controllers\WishListController@remove')->name("wishlist.remove");
 
+/*API Routes*/
+Route::get('/api/discounts', 'App\Http\Controllers\APIController@getDiscounts')->name("api.discounts");
+
 /* Get Api */
 Route::get('api/getApi', 'App\Http\Controllers\Api\getApi@index')->name('api.get');
+
