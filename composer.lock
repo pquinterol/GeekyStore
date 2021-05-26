@@ -4,11 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "27a734c7c7862479a30403a869794ba1",
-=======
+  
     "content-hash": "703ff2ce7e851582870335f3f934cce5",
->>>>>>> 971266c (Fully PayPal payments functionality integrated with the system.)
     "packages": [
         {
             "name": "asm89/stack-cors",
