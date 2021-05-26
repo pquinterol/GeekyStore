@@ -11,6 +11,7 @@
                 <div class="card-body">
                     <a href={{ route('user.list', 'name') }} class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('user.showUser') !!}</a>
                     <a href={{ route('product.create') }} class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('user.createProduct') !!}</a>
+                    <a href={{ route('product.listAdmin', 'name') }} class="btn btn-primary btn-lg" role="button" aria-pressed="true">{!! trans('user.listProduct') !!}</a>
                 </div>
             </div>
         </div>
