@@ -77,3 +77,6 @@ Route::post('/wishlist/save', 'App\Http\Controllers\WishListController@save')->n
 Route::get('/wishlist/list', 'App\Http\Controllers\WishListController@list')->name("wishlist.list");
 Route::get('/wishlist/removeAll/{userId}', 'App\Http\Controllers\WishListController@removeAll')->name("wishlist.removeAll");
 Route::get('/wishlist/remove/{userId}/{productId}', 'App\Http\Controllers\WishListController@remove')->name("wishlist.remove");
+
+/* Get Api */
+Route::get('api/getApi', 'App\Http\Controllers\Api\getApi@index')->name('api.get');
