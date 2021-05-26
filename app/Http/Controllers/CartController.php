@@ -30,7 +30,7 @@ class CartController extends Controller
         $products = $request->session()->get("products");
         $products[$id] = $id;
         $request->session()->put('products', $products);
-        $request->session()->flash('success', 'Product added to yout cart!');
+        $request->session()->flash('success', trans('cart.succssAdd'));
         return back();
     }
 
@@ -39,63 +39,15 @@ class CartController extends Controller
         $products = $request->session()->get("products");
         unset($products[$id]);
         $request->session()->put('products', $products);
-        $request->session()->flash('success', 'Product deleted from your cart!');
+        $request->session()->flash('success', trans('cart.succssDel'));
         return back();
     }
 
     public function removeALl(Request $request)
     {
         $request->session()->forget('products');
-        $request->session()->flash('success', 'Your Cart has been emptied!');
+        $request->session()->flash('success', trans('succssEmptied'));
         return back();
-    }
-
-    public function buyNow(Request $request)
-    {   
-        $status = '';
-        $message = '';
-        $ids = $request->session()->get("products");
-        $products = Product::whereIn('id', $ids)->get();
-        $total = 0;
-        try{
-            foreach ($products as $product)
-            {
-                $total = $total + $product->getPrice();
-            }
-            $order = Order::create(
-                [
-                'user'  => $request['user'],
-                'price' =>  $total
-                ]
-            );
-
-            foreach ($products as $product)
-            {   
-                
-
-                Item::create(
-                    [
-                    'quantity'  => '1',
-                    'subtotal' => $product->getPrice(),
-                    'product'  => $product->getId(),
-                    'order'  => $order->getId()
-                    ]
-                );
-            }
-
-            $request->session()->forget('products');
-            $status = 'success';
-            $message = 'Order created successfully!!';
-            
-        }catch (Exception $e){
-            $status = 'error';
-            $message = 'Unable to create order';
-        }   
-        
-        
-        
-
-        return redirect()->route('order.list', 'created_at')->with($status, $message);
     }
 
 }

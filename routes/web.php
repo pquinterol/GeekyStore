@@ -31,6 +31,9 @@ Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("o
 Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
 Route::get('/order/list/InProcess', 'App\Http\Controllers\OrderController@inProcess')->name("order.inProcess");
 Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')->name("order.list");
+Route::post('/order/pay', 'App\Http\Controllers\OrderController@pay')->name('order.pay');
+Route::get('/order/payment', 'App\Http\Controllers\OrderController@getPaymentStatus')->name('order.payment');
+
 //PDF
 Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.download");
 
@@ -81,3 +84,7 @@ Route::get('/wishlist/remove/{userId}/{productId}', 'App\Http\Controllers\WishLi
 
 /*API Routes*/
 Route::get('/api/discounts', 'App\Http\Controllers\APIController@getDiscounts')->name("api.discounts");
+
+/* Get Api */
+Route::get('api/getApi', 'App\Http\Controllers\Api\getApi@index')->name('api.get');
+

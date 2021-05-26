@@ -24,4 +24,5 @@ return [
     'products' => 'Listar Productos',
     'orders' => 'Listar Ordenes',
     'cart' => 'Carrito',
+    'api'  => 'Ver Apis',
 ];
