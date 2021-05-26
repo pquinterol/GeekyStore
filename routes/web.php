@@ -31,6 +31,9 @@ Route::post('/order/save', 'App\Http\Controllers\OrderController@save')->name("o
 Route::get('/order/show/{id}', 'App\Http\Controllers\OrderController@show')->name("order.show");
 Route::get('/order/list/InProcess', 'App\Http\Controllers\OrderController@inProcess')->name("order.inProcess");
 Route::get('/order/list/{param}', 'App\Http\Controllers\OrderController@listBy')->name("order.list");
+Route::post('/order/pay', 'App\Http\Controllers\OrderController@pay')->name('order.pay');
+Route::get('/order/payment', 'App\Http\Controllers\OrderController@getPaymentStatus')->name('order.payment');
+
 //PDF
 Route::get('/order/download', 'App\Http\Controllers\OrderController@download')->name("order.download");
 
