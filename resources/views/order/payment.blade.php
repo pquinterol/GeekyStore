@@ -11,14 +11,14 @@
         <div class="card-header"><h2>{{ "Payment" }}</h2></div>
           <div class="card-body">
             @if ($data != null)
-              <b>{!! "ID" !!}:</b> {{ $data['result']['id'] }}<br />
-              <b>{!! "State" !!}:</b> {{ $data['result']['state'] }}<br />
-              <b>{!! "Payer Name" !!}</b> {{ $data['result']['payer']->getFirstName() }}<br />
-              <b>{!! "Payer Last Name" !!}</b> {{ $data['result']['payer']->getLastName() }}<br />
-              <b>{!! "Payer Email" !!}</b> {{ $data['result']['payer']->getEmail() }}<br />
-              <b>{!! "Country Code" !!}</b> {{ $data['result']['payer']->getCountryCode() }}<br />
-              <b>{!! "Total Amount" !!}</b> {{ $data['result']['transaction']->getTotal() }}<br />
-              <b>{!! "Currency" !!}</b> {{ $data['result']['transaction']->getCurrency() }}<br />
+              <b>{!! trans('payment.id') !!}:</b> {{ $data['result']['id'] }}<br />
+              <b>{!! trans('payment.state') !!}:</b> {{ $data['result']['state'] }}<br />
+              <b>{!! trans('payment.payerName') !!}</b> {{ $data['result']['payer']->getFirstName() }}<br />
+              <b>{!! trans('payment.payerLastName') !!}</b> {{ $data['result']['payer']->getLastName() }}<br />
+              <b>{!! trans('payment.payerEmail') !!}</b> {{ $data['result']['payer']->getEmail() }}<br />
+              <b>{!! trans('payment.countryCode') !!}</b> {{ $data['result']['payer']->getCountryCode() }}<br />
+              <b>{!! trans('payment.totalAmount') !!}</b> {{ $data['result']['transaction']->getTotal() }}<br />
+              <b>{!! trans('payment.currency') !!}</b> {{ $data['result']['transaction']->getCurrency() }}<br />
             @endif
           </div>
         </div>
