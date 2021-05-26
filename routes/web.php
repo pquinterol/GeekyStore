@@ -81,6 +81,5 @@ Route::get('/wishlist/list', 'App\Http\Controllers\WishListController@list')->na
 Route::get('/wishlist/removeAll/{userId}', 'App\Http\Controllers\WishListController@removeAll')->name("wishlist.removeAll");
 Route::get('/wishlist/remove/{userId}/{productId}', 'App\Http\Controllers\WishListController@remove')->name("wishlist.remove");
 
-//Payment Routes by Pedro
-Route::get('/payment/status', 'App\Http\Controllers\PaymentController@getStatus')->name('payment.status');
-
+/* Get Api */
+Route::get('api/getApi', 'App\Http\Controllers\Api\getApi@index')->name('api.get');
